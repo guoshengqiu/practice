@@ -37,5 +37,70 @@
 	<p>&nbsp;&nbsp;特殊符号分为两类，容易通过输入法输入的（易输入）；难以通过输入法输入的，需要代码实现（难输入）。</p>
 	<p>欧元符号:&euro;<br/>英镑符号：&pound;</p>
 	</div>
+	<hr/>
+	<div>
+	<h1>列表运用于问卷调查</h1>
+	<ol type="1">				<!--type属性默认为数字，还可以a、A，i，I-->
+		<li>
+			<h4>你是通过什么途径学习前段的？</h4>
+			<ol type="A">
+				<li>百度搜索</li>
+				<li>谷歌搜索</li>
+				<li>其他途径</li>
+			</ol>
+		</li>
+		<li>
+			<h4>你觉得网页设计怎么样？</h4>
+			<ol type="A">
+				<li>好</li>
+				<li>很好</li>
+				<li>非常好</li>
+			</ol>
+		</li>
+		<li>
+			<h4>你觉得这本怎么样？</h4>
+			<ul type="disc">	<!--type可以取实心圆disc、空闲圆circle、正方形square-->
+				<li>通俗易懂</li>
+				<li>内容丰富</li>
+				<li>好到棒</li>
+			</ul>
+		</li>
+	</ol>
+	</div>
+	<hr/>
+	<div>
+	<table>
+		<caption>学生成绩表</caption>
+		<thead>			<!--表头-->
+			<tr>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>成绩</th>
+			</tr>
+		</thead>
+		<tbody>			<!--表身-->
+			<tr>
+				<td>张三</td>
+				<td>男</td>
+				<td>70</td>
+			</tr>
+			<tr>
+				<td>李四</td>
+				<td>男</td>
+				<td>80</td>
+			</tr>
+			<tr>
+				<td>小红</td>
+				<td>女</td>
+				<td>90</td>
+			</tr>
+		</tbody>
+		<tfoot>			<!--表脚-->
+			<tr>
+				<td>平均分</td>
+				<td colspan="2">80</td>
+			</tr>
+		</tfoot>
+	</div>
 </body>
 </html>

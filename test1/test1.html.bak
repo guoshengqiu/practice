@@ -87,7 +87,7 @@
 			<tr>
 				<td>李四</td>
 				<td>男</td>
-				<td>85</td>
+				<td>80</td>
 			</tr>
 			<tr>
 				<td>小红</td>
@@ -97,9 +97,18 @@
 		</tbody>
 		<tfoot>			<!--表脚-->
 			<tr>
-
+				<td>平均分</td>
+				<td colspan="2">80</td>
 			</tr>
 		</tfoot>
+	</table>
+	</div>
+	<hr/>
+	<div>
+		<h4>图片jpg、peg、gif</h4>		<!---->
+		<img src="../../img/tp1.jpg" alt="图片1" title="图片1"/>
+		<img src="../../img/TP2.jpg" alt="图片2"/>
+		<img src="../../img/TP3.jpg" alt="图片3"/>
 	</div>
 </body>
 </html>

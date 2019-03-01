@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>个人信息</title>
+ </head>
+ <body>
+	<h3>修改个人信息</h3>
+	<form method="post">
+		<table border="1px" cellspacing="0" width="600">
+			<tr>
+				<td>姓名:</td>
+				<td><input type="text" value="" name="姓名"/></td>
+				<td rowspan="7"><!-- colsspan -->
+					<details>
+						<summary>各项<mark>技能</mark>指数</summary>
+						<p>合格</p>
+						<p>......</p>
+					</details>
+					
+				</td>
+			</tr>
+			<tr>
+				<td>性别</td>
+				<td>
+					<input type="radio" name="gender" value="男" id="男"/>
+					<label for="男">男</label>
+					<input type="radio" name="gender" value="女" id="女"/>
+					<label for="女">女</label>
+				</td>
+			</tr>
+			<tr>
+				<td>学历</td>
+				<td>
+					<select size="1">
+						<option>小学</option>
+						<option>初中</option>
+						<option>高中</option>
+						<option>专科</option>
+						<option>本科</option>
+						<option selected>其他</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>意向工作城市</td>
+				<td>
+					<select size="5">
+						<option>北京</option>
+						<option>上海</option>
+						<option>广州</option>
+						<option>深圳</option>
+						<option>其他</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>个人描述</td>
+				<td>
+					<textarea rows="5" cols="25" value="个人描述"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="checkbox" name="信息保密" value="信息保密" id="safe"/>
+					<label for="safe">不要公开我的个人信息</label>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="submit" value="保存"/>
+					<input type="reset" value="重填"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+ </body>
+</html>

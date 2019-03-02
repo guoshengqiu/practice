@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+	<img src="../../img/jd_logo.png" alt="京东LOGO"/>
+	<h4>欢迎登录</h4>
+	<form>
+		<table border="1px" cellspacing="0" width="600">
+			<tr>
+				<td rowspan="8">
+					<img src="../../img/login.png" alt="京东金融"/>
+				</td>
+				<td>用户名/邮箱:</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" name="账号名" value="qgs@qq.com"/>
+				</td>
+			</tr>
+			<tr>
+				<td>密码</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="possword" name="密码" value=""/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="checkbox" name="自动登录" value="自动登录" id="自动登录" checked/>
+					<label for="自动登录">自动登录</label>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input type="submit" name="登录" value="登录"/>
+					<input type="reset" name="重填" value="重填"/>
+				</td>
+			</tr>
+			<tr>
+				<td>使用京东合作账号登录</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="radio" name="合作账号" value="QQ" id="QQ"/>
+					<label for="QQ">QQ</label>
+					<input type="radio" name="合作账号" value="京东钱包" id="京东钱包"/>
+					<label for="京东钱包">京东钱包</label>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right">
+					<a href="http://www.baidu.com" target="_blank">
+						<img src="../../img/btn_register.jpg" alt="免费注册"/>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</form>
+ </body>
+</html>

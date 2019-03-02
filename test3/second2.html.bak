@@ -11,7 +11,7 @@
 			<tr>
 				<td>姓名:</td>
 				<td><input type="text" value="" name="姓名"/></td>
-				<td rowspan="7"><!-- colsspan -->
+				<td colspan="7"><!-- rowspan -->
 					<details>
 						<summary>各项<mark>技能</mark>指数</summary>
 						<p>合格</p>

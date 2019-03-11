@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>css1边框</title>
+  <style type="text/css">
+	#div1{
+		width:900px;
+		height:300px;
+		border:1px solid red;
+		}
+	.a1{border-bottom:1px solid #000;}
+  </style>
+ </head>
+ <body>
+	<div id="div1">
+		<div class="a1">
+			<div>
+				<p>星星</p>
+			</div>
+		</div>
+	</div>
+ </body>
+</html>

@@ -11,13 +11,12 @@
 			<tr>
 				<td>姓名:</td>
 				<td><input type="text" value="" name="姓名"/></td>
-				<td colspan="7"><!-- rowspan -->
+				<td rowspan="7"><!--  colspan-->
 					<details>
 						<summary>各项<mark>技能</mark>指数</summary>
 						<p>合格</p>
 						<p>......</p>
 					</details>
-					
 				</td>
 			</tr>
 			<tr>
@@ -55,7 +54,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>个人描述</td>
+				<td valign="top">个人描述</td>
 				<td>
 					<textarea rows="5" cols="25" value="个人描述"></textarea>
 				</td>

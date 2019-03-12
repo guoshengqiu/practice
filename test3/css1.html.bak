@@ -4,21 +4,43 @@
   <meta charset="UTF-8">
   <title>css1边框</title>
   <style type="text/css">
+	/*边框1，大边框*/
 	#div1{
 		width:900px;
 		height:300px;
 		border:1px solid red;
-		}
-	.a1{border-bottom:1px solid #000;}
+		padding:5px;/*内边距*/
+		margin-bottom:5px;/*外边距-底部*/
+	}
+		/*边框2，只有底部*/
+	.a1{
+		border-bottom:1px solid #000;
+		padding:5px;
+	}
+		/*放入背景图片的div*/
+	.star{
+		width:60px;
+		height:20px;
+		background-image:url(../../img/iconlist_1.png);
+		background-repeat:no-repeat ;
+		background-position:-80px -239px;
+	}
+	.tupian{
+		width:278px;
+		height:429px;
+		border:1px solid black;
+		margin:10px;
+		background-image:url(../../img/iconlist_1.png);
+		background-repeat:no-repeat;
+	}
   </style>
  </head>
  <body>
 	<div id="div1">
 		<div class="a1">
-			<div>
-				<p>星星</p>
-			</div>
+			<div class="star"></div>
 		</div>
 	</div>
+	<div class="tupian"></div><!--  -->
  </body>
 </html>

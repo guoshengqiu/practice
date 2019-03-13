@@ -19,11 +19,11 @@
 	}
 		/*放入背景图片的div*/
 	.star{
-		width:60px;
-		height:20px;
+		width:75px;
+		height:14px;
 		background-image:url(../../img/iconlist_1.png);
 		background-repeat:no-repeat ;
-		background-position:-80px -239px;
+		background-position:-109px -239px;
 	}
 	.tupian{
 		width:278px;
@@ -33,12 +33,36 @@
 		background-image:url(../../img/iconlist_1.png);
 		background-repeat:no-repeat;
 	}
+	#content{
+		display:inline-block;
+		padding:2px 8px;
+	}
+	/*后代选择器*/
+	#content p{
+		
+		line-height:15px;
+	}
+	#content span{
+		background-color:pink;
+	}
+	#content .btn{
+		width:90px;
+		height:45px;
+		border:1px solid red;
+	}
   </style>
  </head>
  <body>
 	<div id="div1">
 		<div class="a1">
 			<div class="star"></div>
+		</div>
+		<div id="content">
+			<p>标&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;签：<span>比洗衣粉好</span> <span>去污能力强<span></p>
+			<p>心&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;得：挺好用的，好评</p>
+			<p>购买日期：2019-03-13</p>
+			<input class="btn" type="button" value="有用（3）"/>
+			<input class="btn" type="button" value="回复（2）"/>
 		</div>
 	</div>
 	<div class="tupian"></div><!--  -->

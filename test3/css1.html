@@ -7,7 +7,7 @@
 	/*边框1，大边框*/
 	#div1{
 		width:900px;
-		height:300px;
+		height:200px;
 		border:1px solid red;
 		padding:5px;/*内边距*/
 		margin-bottom:5px;/*外边距-底部*/
@@ -32,6 +32,7 @@
 		margin:10px;
 		background-image:url(../../img/iconlist_1.png);
 		background-repeat:no-repeat;
+
 	}
 	#content{
 		display:inline-block;
@@ -51,6 +52,26 @@
 		border:1px solid red;
 		background-color:gray;
 	}
+	/*设置div元素下a元素的样式*/
+	.page a{
+		display:inline-block;
+		text-decoration:none;/*去A元素默认的下划线*/
+		border:1px solid pink;
+		padding:5px;
+	}
+	.page{margin:5px 0px;}
+	div.page{}
+	span.page{background:gray;}
+	/*固定定位*/
+	.fi{
+		display:inline-block;
+		position:fixed;
+		bottom:100px;
+		right:100px;
+		color:red;
+		font-size:30px;
+		background:black;
+	}
   </style>
  </head>
  <body>
@@ -66,6 +87,15 @@
 			<input class="btn" type="button" value="回复（2）"/>
 		</div>
 	</div>
+	<div class="page">
+		<a href="#">1</a>
+		<a href="#">2</a>
+		<a href="#">3</a>
+		<a href="#">4</a>
+		<a href="#">5</a>
+	</div>
+	<span class="page">这是个class为page的span元素</span>
 	<div class="tupian"></div><!--  -->
+	<div class="fi">固定定位fixed</div>
  </body>
 </html>

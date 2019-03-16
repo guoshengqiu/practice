@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>test2</title>
+  <style type="text/css">
+	.p2{
+		font-size:2em;
+		background-color:gray;
+		margin:0px;
+	}
+	.p3{
+		font-size:10px;
+		background-color:red;
+		margin:0px;
+	}
+	.div1{
+		background-color:yellow;
+		width:120px;
+		height:80px;
+		border:1px solid black;
+		overflow:auto;
+	}
+	.div1 p{
+		line-height:16px;
+		margin:0px;
+	}
+	a{
+		font-size:30px;
+	}
+	a:link{color:blue;}
+	a:visited{color:red;}
+	a:hover{
+		color:yellow;
+		font-size:4em;
+	}
+	a:active{
+		color:gray;
+		text-decoration:none;
+	}
+	.div2{
+		width:50px;
+		height:50px;
+		border:30px solid;
+		border-top-color:red;
+		border-right-color:yellow;
+		border-bottom-color:blue;
+		border-left-color:green;
+	}
+  </style>
+ </head>
+ <body>
+	<p class="p1">这是普通大小文本</p>
+	<p class="p2">2em的文本</p>
+	<p class="p3">d3</p>
+	<div class="div1">
+		<p>减肥的考拉借款分类的手机阿里开发</p>
+		<p>减肥的考拉借款分类的手机阿里开发</p>
+	</div>
+	<a href="https://www.baidu.com/" target="_
+	blank">百度</a>
+	<div class="div2">
+	
+	</div>
+ </body>
+</html>

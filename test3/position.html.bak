@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	.parent div {
+		width: 100px;
+		height: 200px;
+	}
+	.parent {
+		position: relative
+	}
+	.grandPar {
+		position: relative
+	}
+	.relative {
+		background-color: red;
+		position: relative;
+		z-index: 78;
+	}
+	.relative2 {
+		background-color: black;
+		position: relative;
+		top: -70px;
+		z-index: 2;
+	}
+	.abs {
+		background-color: blue;
+		position: absolute;
+		top: 10px;
+		left: 100px;
+	}
+	.fix {
+		position: fixed;
+		bottom: 0;
+		right: 10px;
+		background-color: green;
+	}
+  </style>
+ </head>
+ <body>
+	<div class="grandPar">
+		<div class="parent">
+			<span>fsafjsoifjadsofs</span>
+			<div class="relative">relative</div>
+			<div class="relative2">relative</div>
+			<div class="abs">absolute</div>
+
+			<div class="fix">fixed</div>
+		</div>
+	</div>
+  
+ </body>
+</html>

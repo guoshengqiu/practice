@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>淘宝注册</title>
+  <style type="text/css">
+	.top{
+		background-color:rgb(245,245,245);
+		height:35px;
+	}
+	.top_l{
+		float:left;
+		width:350px;
+	}
+	.top_r{}
+
+	.div_logo{
+		height:60px;
+		
+	}
+	.logo{
+		width:114px;
+		height:52px;
+		float:left;
+		vertical-align: middle;
+	}
+	h2{
+		vertical-align: middle;	
+	}
+	}
+	.clear{clear:both;}
+  </style>
+ </head>
+ <body style="margin:0px;">
+	<div class="top">
+		<div class="top_l">1</div>
+		<div class="top_r">2</div>
+		<div class="clear"></div><!-- 清除浮动的影响 -->
+	</div>
+	<div class="div_logo">
+		<div class="logo">
+			<img src="TBregister-img/TB114_52.png" alt=""/>
+		</div>
+		<h2>用户注册</h2>
+		<div class="clear"></div>
+	</div>
+ </body>
+</html>

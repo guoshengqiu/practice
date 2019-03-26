@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+	.float1 {
+		float: left;
+		width: 100px;
+		height: 130px;
+		background-color: red;
+	}
+	.float2 {
+		width: 100px;
+		height:200px;
+		background-color: blue;
+
+	}
+	.clear {
+		height: 400px;
+	}
+  </style>
+
+ </head>
+ <body>
+	<div class="clear">
+		<div class="float1">float1</div>
+		<div class="float2">float2</div>
+	</div>
+ </body>
+</html>

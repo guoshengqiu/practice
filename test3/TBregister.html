@@ -7,43 +7,139 @@
 	.top{
 		background-color:rgb(245,245,245);
 		height:35px;
+		width:auto;
+		font-size:15px;
 	}
 	.top_l{
-		float:left;
+		display:inline-block;
 		width:350px;
+		height:auto;
+		margin-top:7px;
+		float:left;
 	}
-	.top_r{}
+	.top_r{
+		display:inline-block;
+		width:750px;
+		height:auto;
+		margin-top:7px;
+		float:right;
+	}
+	ol,li{
+		margin:0px;
+		padding:0px;
+	}
+	.top_r li{
+		margin-left:25px;
+		list-style-type:none;
+		float:left;
+	}
 
-	.div_logo{
-		height:60px;
-		
+	a{cursor:pointer;}/*鼠标变手型*/
+	a:link{
+		text-decoration:none;
+		color:gray;
+	}
+	a:hover{color:red;}
+	.a1:link{color:red;}
+	.top_l>a{
+		margin-right:10px;
+	}
+/*------------------------------------*/
+	.header{
+		height:58px;
+		width:auto;
+		margin:15px 0px;
 	}
 	.logo{
-		width:114px;
-		height:52px;
-		float:left;
-		vertical-align: middle;
+		display:inline-block;
+		
+	
 	}
-	h2{
+	.header h1,.header h2{
 		margin:0px;
-		vertical-align: middle;	
+		float:left;	
 	}
+	.header h2{
+		margin-top:10px;
+		margin-left:8px;
 	}
+/*-----------******------------*/
+	.body{
+		height:700px;
+		width:auto;
+	}
+	.body_h{
+		height:48px;
+		width:auto;
+		border-bottom:2px solid rgb(230,230,230);
+	}
+	.body_h ol{margin:0px 135px;}
+	.body_h li{
+		width:auto;
+		height:48px;
+		margin:0px 40px;
+		padding:0px 20px;
+		list-style-type:none;
+		float:left;
+	}
+	li.l1{border-bottom:2px solid red;}
+/*---************-------------*/
 	.clear{clear:both;}
   </style>
  </head>
+
  <body style="margin:0px;">
 	<div class="top">
-		<div class="top_l">1</div>
-		<div class="top_r">2</div>
+		<div class="top_l">
+			<a href="#1" class="a1" alt="">亲，请登录</a>
+			<a href="#2" alt="">免费注册</a>&nbsp;&nbsp;
+			<a href="#3" alt="">手机逛淘宝</a>
+		</div>
+		<div class="top_r">
+			<ol>
+				<li><a href="#4" class="a1" alt="">淘宝网首页</a></li>
+				<li><a href="#5" alt="">我的淘宝</a></li>
+				<li><a href="#6" alt="">购物车</a></li>
+				<li><a href="#7" alt="">☆收藏夹</a></li>
+				<li><a href="#8" alt="">商品分类</a></li>
+				<li><a href="#9" alt="">卖家中心</a></li>
+				<li><a href="#10" alt="">联系客服</a></li>
+				<li><a href="#11" alt="">网站导航</a></li>
+				<div class="clear"></div>
+			</ol>
+		</div>
 		<div class="clear"></div><!-- 清除浮动的影响 -->
 	</div>
-	<div class="div_logo">
+	<div class="header">
 		<div class="logo">
-			<img src="TBregister-img/TB114_52.png" alt=""/>
+			<h1>
+				<img src="TBregister-img/TB114_52.png" alt=""/>
+			</h1>
+			<h2>用户注册</h2>
+			<div class="clear"></div>
 		</div>
-		<h2>用户注册</h2>
-		<div class="clear"></div>
+	</div>
+	<div class="body">
+		<div class="body_h">
+			<ol>
+				<li class="l1">
+					<i>1</i>
+					<span>设置用户名</span>
+				</li>
+				<li>
+					<i>2</i>
+					<span>填写账号信息</span>
+				</li>
+				<li>
+					<i>3</i>
+					<span>设置支付方式</span>
+				</li>
+				<li>
+					<i>√</i>
+					<span>注册成功</span>
+				</li>
+			</ol>
+		</div>
 	</div>
  </body>
 </html>

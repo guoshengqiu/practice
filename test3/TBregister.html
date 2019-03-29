@@ -83,6 +83,43 @@
 		float:left;
 	}
 	li.l1{border-bottom:2px solid red;}
+	/*=================*/
+	.body_b{
+		width:auto;
+		height:250px;
+		padding:50px 0px;
+	}
+	.body_b .b1{
+		width:auto;
+		height:250px;
+		margin:0px 135px;
+	}
+	.body_b .b1 .b11{
+		display:inline-block;
+		padding:10px 0px 10px 260px;
+	}
+	.b11 select{
+		width:auto;
+		height:37px;
+		margin:0px;
+		border:1px solid rgb(204,204,204);
+		cursor:pointer;
+	}
+	.b11 option{
+		width:auto;
+		height:37px;
+		cursor:pointer;
+	}
+	option:hover{
+		background-color:red;
+	}
+	.b11 input{
+		width:auto;
+		height:35px;
+		margin:0px;
+		padding:0px 0px 0px 15px;
+		border:1px solid rgb(204,204,204);
+	}
 /*---************-------------*/
 	.clear{clear:both;}
   </style>
@@ -139,6 +176,25 @@
 					<span>注册成功</span>
 				</li>
 			</ol>
+		</div>
+		<div class="body_b">
+			<form>
+				<div class="b1">
+					<div class="b11">
+						<span>手机号</span>
+						<select>
+							<option>中国大陆&nbsp;&nbsp;+86</option>
+							<option>中国香港&nbsp;&nbsp;+852</option>
+							<option>日本&nbsp;&nbsp;+81</option>
+							<option>马来西亚&nbsp;&nbsp;+60</option>
+							<option>新加坡&nbsp;&nbsp;+65</option>
+							<option>韩国&nbsp;&nbsp;+82</option>
+							<option>加拿大&nbsp;&nbsp;+1</option>
+						</select>
+						<input type="text" value="请输入你的手机号码">
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
  </body>

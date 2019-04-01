@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>淘宝注册</title>
   <style type="text/css">
+	body{
+		width:1365px;
+		overflow-x:scroll;
+	}
 	.top{
 		background-color:rgb(245,245,245);
 		height:35px;
@@ -15,6 +19,7 @@
 		width:350px;
 		height:auto;
 		margin-top:7px;
+		margin-left:75px;
 		float:left;
 	}
 	.top_r{
@@ -48,7 +53,7 @@
 	.header{
 		height:58px;
 		width:auto;
-		margin:15px 0px;
+		margin:15px 75px;
 	}
 	.logo{
 		display:inline-block;
@@ -64,25 +69,53 @@
 		margin-left:8px;
 	}
 /*-----------******------------*/
-	.body{
-		height:700px;
+	.cbody{
+		height:400px;
 		width:auto;
+		margin:0px 75px;
 	}
 	.body_h{
 		height:48px;
 		width:auto;
 		border-bottom:2px solid rgb(230,230,230);
 	}
-	.body_h ol{margin:0px 135px;}
+	.body_h ol{
+		margin:0px 0px;
+		padding:0px 135px;
+	}
 	.body_h li{
 		width:auto;
 		height:48px;
-		margin:0px 40px;
-		padding:0px 20px;
+		margin:0px 0px;
+		padding:0px 35px;
 		list-style-type:none;
+		font-size:20px;
+		text-align:center;
+		line-height:48px;
 		float:left;
 	}
 	li.l1{border-bottom:2px solid red;}
+	.h01{
+		display:inline-block;
+		font-size:8px;
+		margin-top:15px;
+		margin-left:200px;
+	}
+	.h01 a{
+		width:auto;
+		height:auto;
+		padding:2px;
+		border:1px solid rgb(230,230,230);
+		cursor:pointer;
+	}
+	.h01 a:link{
+		text-decoration:none;
+		color:black;
+	}
+	.01 a:hover{
+		text-decoration:underline;
+		color:red;
+	}
 	/*=================*/
 	.body_b{
 		width:auto;
@@ -96,7 +129,8 @@
 	}
 	.body_b .b1 .b11{
 		display:inline-block;
-		padding:10px 0px 10px 260px;
+		padding:10px 0px 20px 260px;
+		/*border:1px solid red;*/
 	}
 	.b11 select{
 		width:auto;
@@ -105,7 +139,7 @@
 		border:1px solid rgb(204,204,204);
 		cursor:pointer;
 	}
-	.b11 option{
+	.b11 option{   /*不起作用*/
 		width:auto;
 		height:37px;
 		cursor:pointer;
@@ -119,6 +153,94 @@
 		margin:0px;
 		padding:0px 0px 0px 15px;
 		border:1px solid rgb(204,204,204);
+	}
+	.b11 .b122{
+		display:inline-block;
+		width:300px;
+		height:32px;
+		background-color:rgb(232,232,232);
+		font-size:24px;
+	}
+	.b11 .b121{
+		display:inline-block;
+		width:40px;
+		height:30px;
+		border:1px solid rgb(204,204,204);
+		position:relative;
+		right:304px;
+		background-color:rgb(255,2555,255);
+	}
+	.b11 .b123{
+		display:inline-block;
+		width:auto;
+		height:auto;
+		position:relative;bottom:10px;	/*相对定位*/
+		
+		padding-left:16px;
+		/*line-height:38px;border:1px solid red;*/
+	}
+	.b13,.b14{
+		width:auto;
+		height:auto;
+		padding-top:20px;
+		padding-left:314px;
+	}
+	.b13 input{
+		width:180px;
+		height:38px;
+		padding:0px;
+		border:0px;
+		background-color:rgb(237,237,237);
+		font-size:18px;
+		color:rgb(175,175,175);
+	}
+	.b13 input:hover{
+		color:rgb(255,255,255);
+	}
+	.b14 a:link,.befooter a:link{
+		font-size:14px;
+		color:rgb(255,91,23);
+	}
+	.b14 a:hover,.befooter a:hover{
+		text-decoration:underline;
+	}
+	.befooter{
+		width:auto;
+		height:20px;
+		margin:0px 75px;
+		padding:10px 0px;
+		border-bottom:1px solid rgb(221,221,211);
+		font-size:14px;
+		text-align:right;
+	}
+	.befooter img{
+		vertical-align:middle;
+	}
+	.footer{
+		width:auto;
+		height:20px;
+		margin:0px 75px;
+		padding:10px 0px;
+		border-bottom:1px solid rgb(221,221,211);
+		font-size:14px;
+		font-weight:50;
+	}
+	.footer a{
+		padding:0px 4px 0px 2px;
+	}
+	.help{
+		width:65px;
+		height:90px;
+		position:fixed;
+		top:300px;
+		right:50px;
+		border:2px solid rgb(245,245,245);
+		border-radius:5px;
+		text-align:center;
+	}
+	.help:hover,.help a:hover{
+		color:rgb(247,147,30);
+		border-color:rgb(247,147,30);
 	}
 /*---************-------------*/
 	.clear{clear:both;}
@@ -137,7 +259,7 @@
 				<li><a href="#4" class="a1" alt="">淘宝网首页</a></li>
 				<li><a href="#5" alt="">我的淘宝</a></li>
 				<li><a href="#6" alt="">购物车</a></li>
-				<li><a href="#7" alt="">☆收藏夹</a></li>
+				<li><a href="#7" alt="">★收藏夹</a></li>
 				<li><a href="#8" alt="">商品分类</a></li>
 				<li><a href="#9" alt="">卖家中心</a></li>
 				<li><a href="#10" alt="">联系客服</a></li>
@@ -156,7 +278,7 @@
 			<div class="clear"></div>
 		</div>
 	</div>
-	<div class="body">
+	<div class="cbody">
 		<div class="body_h">
 			<ol>
 				<li class="l1">
@@ -176,6 +298,11 @@
 					<span>注册成功</span>
 				</li>
 			</ol>
+			<div class="h01">
+				<a>中文</a>
+				|
+				<a>English</a>
+			</div>
 		</div>
 		<div class="body_b">
 			<form>
@@ -191,11 +318,64 @@
 							<option>韩国&nbsp;&nbsp;+82</option>
 							<option>加拿大&nbsp;&nbsp;+1</option>
 						</select>
-						<input type="text" value="请输入你的手机号码">
+						<input type="text" value="请输入你的手机号码"/>
+					</div>
+					<br/>
+					<div class="b11"><!-- 实际b12，但是CSS选用b11 -->
+						<span class="b123">验证</span>
+						<div class="b122">
+							<span></span><!-- 按住滑块，拖动至 -->
+						</div>
+						<div class="b121"></div>
+					</div>
+					<div class="b13">
+						<input type="submit" value="下一步"/>
+					</div>
+					<div class="b14">
+						<a href="#12">切换成企业账户注册</a>
 					</div>
 				</div>
 			</form>
 		</div>
+	</div>
+	<div class="befooter">
+		<img src="TBregister-img/TB16_14.png"/>
+		<span><a href="#14">"淘宝注册"改进建议</a></span>
+	</div>
+	<div class="footer">
+		<a href="#15">阿里巴巴集团</a>
+		|
+		<a href="#16">阿里巴巴国际站</a>
+		|
+		<a href="#17">阿里巴巴中国站</a>
+		|
+		<a href="#18">全球速卖通</a>
+		|
+		<a href="#19">淘宝网</a>
+		|
+		<a href="#20">天猫</a>
+		|
+		<a href="#21">聚划算</a>
+		|
+		<a href="#22">一淘</a>
+		|
+		<a href="#23">阿里妈妈</a>
+		|
+		<a href="#24">阿里云计算</a>
+		|
+		<a href="#25">云OS</a>
+		|
+		<a href="#26">万网</a>
+		|
+		<a href="#27">支付宝</a>
+	</div>
+	<div class="help">
+		<a href="#28">
+			<img src="TBregister-img/TB56_46.png" alt=""/>
+			<span>有问题？</span>
+			<br/>
+			<span>找小蜜</span>
+		</a>
 	</div>
  </body>
 </html>

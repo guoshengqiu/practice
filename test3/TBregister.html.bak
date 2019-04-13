@@ -170,6 +170,9 @@
 		right:304px;
 		background-color:rgb(255,2555,255);
 	}
+	.b121 {
+		cursor: pointer
+	}
 	.b11 .b123{
 		display:inline-block;
 		width:auto;
@@ -234,13 +237,17 @@
 		position:fixed;
 		top:300px;
 		right:50px;
-		border:1px solid rgb(245,245,245);
+		border:2px solid rgb(245,245,245);
 		border-radius:5px;
 		text-align:center;
 	}
 	.help:hover,.help a:hover{
 		color:rgb(247,147,30);
 		border-color:rgb(247,147,30);
+	}
+	.test option {
+		padding: 50px;
+		line-height: 90px;
 	}
 /*---************-------------*/
 	.clear{clear:both;}
@@ -318,7 +325,7 @@
 							<option>韩国&nbsp;&nbsp;+82</option>
 							<option>加拿大&nbsp;&nbsp;+1</option>
 						</select>
-						<input type="text" value="请输入你的手机号码"/>
+						<input type="text" placeholder="请输入你的手机号码"/>
 					</div>
 					<br/>
 					<div class="b11"><!-- 实际b12，但是CSS选用b11 -->
@@ -343,10 +350,7 @@
 		<span><a href="#14">"淘宝注册"改进建议</a></span>
 	</div>
 	<div class="footer">
-		<a href="#15">阿里巴巴集团</a>
-		|
-		<a href="#16">阿里巴巴国际站</a>
-		|
+		<a href="#15">阿里巴巴集团</a>|<a href="#16">阿里巴巴国际站</a>|
 		<a href="#17">阿里巴巴中国站</a>
 		|
 		<a href="#18">全球速卖通</a>

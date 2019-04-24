@@ -2,12 +2,13 @@
 <html lang="en">
  <head>
 	<meta charset="UTF-8">
-	<title>JS-appendChild</title>
+	<title>JS-appendChild&removeChild</title>
 	<script>
 			window.onload=function()
 			{
-				var oBth=document.getElementById("btn");
-				oBth.onclick=function()
+				var oBtn=document.getElementById("btn");
+				var oBtnRmv=document.getElementById("btn_rmv");
+				oBtn.onclick=function()
 				{
 					var oUl=document.getElementById("list");
 					var oTxt=document.getElementById("txt");
@@ -16,6 +17,11 @@
 
 					oLi.appendChild(textNode);
 					oUl.appendChild(oLi);
+				};
+				oBtnRmv.onclick=function()
+				{
+					var oUl=document.getElementById("list");
+					oUl.removeChild(oUl.lastElementChild);
 				};
 			}
 	</script>
@@ -27,6 +33,7 @@
 		<li>JS</li>
 	</ul>
 	<input type="text" id="txt"/>
-	<input type="button" id="btn" value="插入"/>
+	<input type="button" id="btn" value="插入"/><br/>
+	<input type="button" id="btn_rmv" value="删除"/>
  </body>
 </html>

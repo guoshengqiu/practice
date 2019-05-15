@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>日历</title>
+  <style type="text/css">
+	*{
+		border:0;
+		padding:0;
+		margin:0;
+		font-family:"微软雅黑";
+	}
+	a{text-decoration:none;}
+	.rili{
+		width:500px;
+		height:350px;
+		border:2px solid rgb(255,0,0);
+	}
+	.top{
+		width:auto;
+		height:auto;
+		margin-left:100px;
+		margin-top:20px;
+	}
+	.top span,.top b{
+		display:inline-block;
+		padding:0px 20px;
+	}
+	.dataTable{
+		width:90%;
+		margin:25px 25px;
+	}
+	.dataTable tr{
+		width:100%;
+		padding:25px 0px;/*没起作用，问题1，非块级元素*/
+	}
+	.dataTable tr td {text-align:center;}
+	.dataTable tr td:hover{border: 1px solid rgb(95,95,95);}
+	.grayday {color:rgb(155,155,155);}
+	.today {
+		border: 1px dashed rgb(95,95,95);
+		background-color:rgb(160,197,232); 
+	}
+  </style>
+ </head>
+ <body>
+  <div id="rili" class="rili">
+	<div id="topdisplay" class="top">
+		<span class="spanLeft"><input type="button" id="butLeft" value="←"></span>
+		<b id="topdate">2019-05</b>
+		<span class="spanLeft"><input type="button" id="butRight" value="→"></span>
+	</div>
+	<table class="dataTable">
+	<thead>
+		<tr id='head'>
+			<td>日</td>
+			<td>一</td>
+			<td>二</td>
+			<td>三</td>
+			<td>四</td>
+			<td>五</td>
+			<td>六</td>
+		</tr>
+	</thead>
+	<tbody id="dateList">
+		<tr id="tr1"></tr>
+		<tr id="tr2"></tr>
+		<tr id="tr3"></tr>
+		<tr id="tr4"></tr>
+		<tr id="tr5"></tr>
+		<tr id="tr6"></tr>
+	</tbody>
+	</table>
+  </div>
+  <script type="text/javascript">
+	var lastMonth=document.getElementById("butLeft")
+	var nextMonth=document.getElementById("butRight")
+	var today=new Date() //获取现在的时间日期
+	var year=today.getFullYear()//获取当前的年月日
+		month=today.getMonth()	// 获取当前月（需要+1）
+		date=today.getDate()
+	var a = document.getElementById("head") //获取第一行的列数
+	console.log(a.cells.length)				//打印第一列长度
+	function add(){
+		clear()								//清空表格
+		var nian = today.getFullYear()
+		var yue = today.getMonth()
+		var tian = today.getDate()
+		var firstday = new Date(today.setDate(1)).getDay()//获取月第一天
+		var lastday = new Date(nian,yue+1,0).getDate()//获取月最后一天数
+		var arr = ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"]
+		var lmLastday = new Date(nian,yue,0).getDate()//获取上一月天数
+
+		document.getElementById("topdate").innerText = nian + "年" + arr[yue]
+		for(var i = firstday-1;i >= 0;i--){
+			var td = document.createElement('td')
+			td.innerText = lmLastday-i
+			td.className = "grayday"
+			document.getElementById('tr1').appendChild(td)
+		}
+		for(var i = 1;i <lastday+1;i++){
+			var td = document.createElement('td')
+			td.innerText = i
+			if (nian==year&&yue==month&&i==date){
+				td.className = "today"
+			}
+			if (document.getElementById('tr1').cells.length < 7){
+				document.getElementById('tr1').appendChild(td)
+			} else if (document.getElementById('tr2').cells.length < 7) {
+					document.getElementById('tr2').appendChild(td)
+			} else if (document.getElementById('tr3').cells.length < 7) {
+					document.getElementById('tr3').appendChild(td)
+			} else if (document.getElementById('tr4').cells.length < 7) {
+					document.getElementById('tr4').appendChild(td)
+			} else if (document.getElementById('tr5').cells.length < 7) {
+					document.getElementById('tr5').appendChild(td)
+			} else {document.getElementById('tr6').appendChild(td)}
+		}
+		var j = 1;
+		while (document.getElementById('tr6').cells.length<7){
+				var td = document.createElement('td')
+				td.innerText = j
+				td.className = "grayday"
+				j++
+				if (document.getElementById('tr5').cells.length<7){
+						document.getElementById('tr5').appendChild(td)
+				} else {
+					document.getElementById('tr6').appendChild(td)
+				}
+		}
+	}
+	function clear (){	//清空表格
+		document.getElementById("tr1").innerHTML = ""
+		document.getElementById("tr2").innerHTML = ""
+		document.getElementById("tr3").innerHTML = ""
+		document.getElementById("tr4").innerHTML = ""
+		document.getElementById("tr5").innerHTML = ""
+		document.getElementById("tr6").innerHTML = ""
+	}
+	lastMonth.onclick = function (){
+		today.setMonth(today.getMonth()-1)
+		add()
+	}
+	nextMonth.onclick = function (){
+		today.setMonth(today.getMonth()+1)
+		add()
+	}
+	add()
+  </script>
+ </body>
+</html>

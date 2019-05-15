@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+  <div id="div1"><span>原生文本</span></div>
+  <div id="div2">AJAX</div>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+	//JQ
+	$(document).ready(function(){
+		 $("#div1").click(function(){
+			$("span").html("追加文本")
+		 })
+		 $.get("https://api.apiopen.top/getSingleJoke?sid=28654780",function(data){console.log(data)})
+	})
+	/////////////////////////////
+	var a = function () {		//arguments 	
+		console.log(arguments)
+		var arg = arguments
+		console.log(arg)
+		for(var i = 0; i< arg.length; i++) {
+			console.log(arg[i])
+		}
+	}
+	
+	var b = function () {		//闭包
+		var a = 0
+		var test = function () {
+			var c = a + 1
+			console.log(c)
+		}
+		return test
+	}
+	// var d = b()
+	// d()
+	 // console.log(d)
+
+	var obj = {name: 'est', say: function () { console.log(this.name)}}
+	//for (var key in obj) {
+	//	console.log(obj[key])
+	//}
+	// obj.say()
+
+	// yuanxing
+	// gouzao
+	function Student () {
+		this.name = 'STU'
+		this.say = function () {
+			console.log(this.name, 'name is')
+		}
+	}
+	Student.prototype.name = 'fffffff'
+	//console.log(Student.prototype)
+	var S = new Student()
+	S.nae = 'fsdfsdf'
+	//S.say()
+	//console.log(S.constructor) // gouzao
+	//console.log(S.__proto__) // yuanxing
+	///console.log(S.nae)
+
+	// THIS
+	this.name = 'windowname'
+	var thY = function () {
+		this.name = 'thy'
+		console.log(this, 'thy this')
+		
+		this.say = function () {
+			console.log(this.name)
+		}
+	}
+	var testThy = new thY()
+	testThy.name ='fsddsfsdf'
+	testThy.say()
+  </script>
+ </body>
+</html>

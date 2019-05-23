@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>轮播</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">	<!-- 轮播CSS CDN -->
+  <!-- JQurey CDN -->
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <!-- swiper轮播CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+  <style type="text/css">
+	.swiper-container {
+		width:630px;
+		height:270px;
+	}
+  </style>
+ </head>
+ <body>
+	<div class="swiper-container"><!-- 可以自己定义这个大小 -->
+		<div class="swiper-wrapper">
+			<div class="swiper-slide"><img src="lunbo1.png"></div>
+			<div class="swiper-slide"><img src="lunbo2.png"></div>
+		</div>
+		<div class="swiper-pagination"></div>	<!-- 分页器 -->
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+	</div>
+
+	<script>
+		var myswiper = new Swiper ('.swiper-container',{
+			autoplay:true,			//自动切换
+			autoplay:{disableOnInteraction: false,},
+			direction: 'horizontal',//水平切换选项
+			loop: true,				//循环模式选项
+
+			pagination: {			//分页器
+				el: '.swiper-pagination',
+			},
+			navigation: {			//前进后退按钮
+				nextE1: '.swiper-button-next',
+				prevE1: '.swiper-button-prev',
+			},
+		})
+	</script>
+ </body>
+</html>

@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8"> 
+  <title>简书首页</title>
+  <!-- 轮播CSS CDN-->
+  <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">	
+  <!-- swiper轮播CDN -->
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+  <!-- JQurey CDN -->
+  <script src = "https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <style type = "text/css">
+	*{
+		border:0;
+		padding:0;
+		margin:0;
+	}
+	a{			/*定义超链接默认样式和光标*/
+		text-decoration: none;
+		/**/
+	}
+	a:link {
+		color: rgb(0,0,0);
+	}
+	a:hover {
+		cursor: pointer;
+		
+	}
+	nav {		/*导航页*/
+		height: 55px;
+		width: 100%;
+		border: 1px solid rgb(240,240,240);
+		margin: 0px 0px 20px 0px;
+		font-size: 18px;
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		z-index: 100;
+	}
+	.navDiv {/**/
+		
+	}
+	.navul, .navul li {
+		list-style: none;/*去掉默认的标识*/
+		padding: 0;
+		margin: 0;
+		
+	}
+	.navul li {
+		float: left;
+		height: 55px;
+		line-height: 55px;
+		margin: 0px 3% 0px 0px;
+	}
+	li.navli1 {
+		margin: 0px 7% 0px 0px;
+	}
+	li.navli2 a:link {
+		color: red;
+	}
+	li.navli3:hover {
+		background-color: rgb(245,245,245);
+	}
+	li.navli4 {
+		margin: 0px 22% 0px 0px;
+	}
+	li.navli4 input.text {
+		height: 40px;
+		width: 130px;
+		background-color: rgb(238,238,238);
+		border-radius: 20px;
+		padding-left: 20px;
+	}
+	li.navli5 a {
+		color: rgb(145,145,145);
+	}
+	li.navli8 a {
+		padding: 8px 25px;
+		border: 1px solid red;
+		box-sizing: border-box;
+		border-radius: 20px;
+	}
+	li.navli9 a {
+		padding: 8px 25px;
+		border: 1px solid red;
+		box-sizing: border-box;
+		border-radius: 20px;
+		color: white;
+		background-color: rgb(236,97,73);
+	}
+
+	.mian {		/*主体部分*/
+		height: auto;
+		width: 70%;
+		margin: 0% 14%;
+		z-index: 50;
+	}
+	.mian .leftDiv {	/*主体左侧DIV*/
+		height: auto;
+		width: 68%;
+		margin: 90px 0px 0px 0px;
+		float: left;
+	}
+	.mian .rightDiv {	/*主体右侧DIV*/
+		height: auto;
+		width: 30%;
+		margin: 90px 0px 0px 2%;
+		float: left;
+	}
+	.swiper-container {	/*轮播框的大小*/
+		height:auto;
+		width:97%;
+	}
+
+	.clear {
+		clear: both;
+	}
+  </style>
+ </head>
+ <body>
+ <nav>			<!-- 顶部导航页 -->
+	 <div class = "navDiv">
+		<ul class ="navul">
+		  <li class ="navli1">
+			<a href ="#1">	<!-- 简书logo -->
+			 <img src = "jianshulogo.png" alt="Nav logo">	
+			</a>
+		  </li>
+		  <li class ="navli2"><a href ="#2">首页</a></li>
+		  <li class ="navli3"><a href ="#3">下载APP</a></li>
+		  <li class ="navli4"><a href ="#4">
+			<input type = "text" name = "搜索" placeholder = "搜索" class = "text"/>
+			<input type = "submit" value = "○"/></a></li>
+		  <li class ="navli5"><a href ="#5">Aa</a></li>
+		  <li><a href ="#6"><img src ="jianshubeta.png"></a></li>
+		  <li><a href ="#7">登录</a></li>
+		  <li class ="navli8"><div><a href ="#8">注册</a></div></li>
+		  <li class ="navli9"><a href ="#9">写文章</a></li>
+		  <li><div class ="clear"></div></li> 
+		</ul>
+	
+	 </div>
+ </nav>
+ <div class = "mian">			<!-- 主题内容 -->
+	 <div class = "leftDiv">	<!-- 左div -->
+			<div class ='swiper-container'>
+				<div class = 'swiper-wrapper'>
+					<div class ='swiper-slide'>
+						<a href = "#21"><img src='lunbo1.png'></a>
+					</div>
+					<div class ='swiper-slide'>
+						<a href = "#22"><img src='lunbo2.png'></a>
+					</div>
+					<div class ='swiper-slide'>
+						<a href = "#23"><img src='lunbo3.png'></a>
+					</div>
+				</div>
+				<div class = 'swiper-pagination'></div><!-- 分页器 -->
+				<div class = 'swiper-button-prev'></div>
+				<div class = 'swiper-button-next'></div>
+			</div>
+	 </div>
+	 <div class = "rightDiv">	<!-- 右div -->
+		<a href = "#31"><img src = "jianshuyou1.png"></a>
+		<a href = "#32"><img src = "jianshuyou2.png"></a>
+		<a href = "#33"><img src = "jianshuyou3.png"></a>
+		<a href = "#34"><img src = "jianshuyou4.png"></a>
+		<a href = "#35"><img src = "jianshuyou5.png"></a>
+	 </div>
+	 <div class = "clear"></div>
+
+	 <script>
+		$(document).ready(function () {
+			var myswiper = new Swiper ('.swiper-container',{
+				autoplay:true,			//自动切换
+				autoplay:{disableOnInteraction: false,},
+				direction: 'horizontal',//水平切换选项
+				loop: true,				//循环模式选项
+
+				pagination: {			//分页器
+					el: '.swiper-pagination',
+					clickable: true,
+				},
+				navigation: {			//前进后退按钮
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+			})
+		})
+	 </script>
+ </div>
+ </body>
+</html>

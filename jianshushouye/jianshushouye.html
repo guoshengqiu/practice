@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset = "UTF-8">
+	<title>简书-创作你的创作</title>
+	<!-- 轮播CSS CDN-->
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">	
+    <!-- swiper轮播CDN -->
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+    <!-- JQurey CDN -->
+    <script src = "https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+	<style type = "text/css">
+		*{
+			margin: 0;/*取消网页所有标签的内外边距*/
+			padding: 0;
+			box-sizing: border-box;
+		}
+		:before,:after {box-sizing: border-box;}
+		body { 
+			font-size: 17px;
+			color: #333;
+			}
+		a {
+			color: #333;
+			text-decoration: none;
+			cursor: pointer;
+		}
+		img {
+			vertical-align: middle;
+		}
+		/************以下是Iconfont Unicode引用*******/
+		@font-face {
+			font-family: 'iconfont';  /* project id 1232708 */
+			src: url('https://at.alicdn.com/t/font_1232708_vzandwmothn.eot');
+			src:
+			url('https://at.alicdn.com/t/font_1232708_vzandwmothn.eot?#iefix') format('embedded-opentype'),
+			url('https://at.alicdn.com/t/font_1232708_vzandwmothn.woff2') format('woff2'),
+			url('https://at.alicdn.com/t/font_1232708_vzandwmothn.woff') format('woff'),
+			url('https://at.alicdn.com/t/font_1232708_vzandwmothn.ttf') format('truetype'),
+			url('https://at.alicdn.com/t/font_1232708_vzandwmothn.svg#iconfont') format('svg');
+		}
+		.iconfont{
+			font-family:"iconfont" !important;
+			font-size:16px;font-style:normal;
+			-webkit-font-smoothing: antialiased;
+			-webkit-text-stroke-width: 0.2px;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		/*************以下是导航栏********************/
+		nav {
+			position: fixed;
+			right: 0;
+			left: 0;
+			z-index: 1030;
+			height: 56px;
+			min-height: 50px;
+			margin-bottom: 20px;
+			top: 0;
+			border: 1px solid #f0f0f0;
+			border-width: 0 0 1px;
+			border-radius: 0;
+			display: block;
+			background-color:#fff;
+		}
+		nav::before,nav::after {
+			content: "";
+			display: table;
+		}
+		nav::after {
+			clear: both;
+		}
+		div.width-limit {
+			min-width: 768px;
+			max-width: 1440px;
+			margin: 0 auto;
+		}
+		nav .jianshu-logo {
+			float: left;
+			height: 56px;
+			padding: 0;
+		}
+		nav .jianshu-logo img {
+			height: 100%;
+			vertical-align: middle;
+			box-sizing: border-box;
+		}
+		nav .write-btn {
+			float: right;
+			width: 100px;
+			height: 40px;
+			line-height: 24px;
+			margin: 8px 12px 0;
+			border-radius:20px;
+			font-size: 15px;
+			color: #fff;
+			background-color: #ea6f5a;
+			display: inline-block;
+			font-weight: 400;
+			text-align: center;
+			vertical-align: middle;
+			cursor: pointer;
+			padding: 6px 12px;
+			white-space: nowrap;
+			border: 1px solid transparent;
+		}
+		.ic-write {
+			margin: 0 5PX 0;
+			font-size: 19px;
+			vertical-align: middle;
+		}
+		.ic-write::before {
+			content: "\e61d";
+		}
+		nav .sign-up {
+			float: right;
+			width: 80px;
+			height: 38px;
+			line-height: 24px;
+			margin: 9px 5px 0 15px;
+			border: 1px solid rgba(236,97,73,.7);
+			border-radius: 20px;
+			font-size: 15px;
+			color: #ea6f5a;
+			display: inline-block;
+			font-weight: 400;
+			text-align: center;
+			vertical-align: middle;
+			white-space: nowrap;
+			cursor: pointer;
+			padding: 6px 12px;
+		}
+		nav .sign-up:hover {
+			background-color: #fef7f5;
+		}
+		nav .sign-in {
+			color: #969696;
+			float: right;
+			margin: 11px 6px 0 10px;
+			font-size: 15px;
+			display: inline-block;
+			font-weight: 400;
+			text-align: center;
+			vertical-align: middle;
+			white-space: nowrap;
+			cursor: pointer;
+			padding: 6px 12px;
+
+		}
+		nav .nav-beta {
+			float: right;
+			height: 55px;
+			padding: 15px 0;
+			margin: 0 12px;
+		}
+		.nav-beta a {
+			width: 100%;
+			height: 100%;
+		}
+		.nav-beta a img {
+			height: 25px;
+			vertical-align: middle;
+			border: 0;
+		}
+		nav .style-mode-btn {
+			float: right;
+			line-height: 20px;
+			padding: 17px 10px;
+			font-size: 24px;
+			color: #969696;
+		}
+		nav .style-mode-btn i::before {
+			content: "Aa";
+			font-size: 17px;
+		}
+		/*上面模式style-mode补上部分--这行*/
+		nav .container {
+			margin-right: auto;
+			margin-left: auto;
+			padding-left: 15px;
+			padding-right: 15px;
+			width: 960px;
+			
+		}
+		nav .container::before,nav .container::after,nav .nav-menu::before,nav .nav-menu::after,nav .nav-menu-ul::before,nav .nav-menu-ul::after {
+			content: " ";
+			display: table;
+		}
+		nav .container::after {
+			clear: both;
+		}
+		nav .nav-menu {
+			border-color: #e7e7e7;
+			max-height: 340px;
+			margin-left: -15px;/*!important*/
+			margin-right: 0;
+			padding-left: 0;
+			padding-right: 0;
+			padding-bottom: 0;
+			overflow: visible;
+			width: auto;
+			border-top: 0;
+		}
+		nav .nav-menu-ul {
+			padding-left: 0;
+			list-style: none;
+			display: block;
+			float: left;
+			margin: 0;
+			/*margin-block-start: 1em;
+			margin-block-end: 1em;
+			margin-inline-start: 0px;
+			margin-inline-end: 0px;
+			padding-inline-start: 40px;*/
+		}
+		nav .nav-menu-ul>li {
+			margin-right: 10px;
+			display: block;
+			float: left;
+			position: relative;
+			line-height: 20px;
+		}
+		nav .nav-menu-ul>.home-page a {
+			height: 56px;
+			line-height:26px;
+			padding: 15px;
+			color: #ea6f5a;
+			background: none;
+			position: relative;
+			display: block;
+		}
+		nav .nav-menu-ul>.download-app a {
+			height: 56px;
+			line-height:26px;
+			padding: 15px;
+			color: #333;
+			position: relative;
+			display: block;
+		}
+		nav .nav-menu-ul>.download-app a:hover {
+			background-color: #f5f5f5;
+		}
+		nav .nav-menu-ul .search {
+			position: relative;
+			display: block;
+			padding-left: 15px;
+			margin-right: 10px;
+			float: left;
+			line-height: 20px;
+		}
+		nav form {
+			position: relative;
+			top: 9px;
+			margin: 0 0 20px;
+			display: block;
+		}
+		nav form .search-input {
+			padding: 0 40px 0 20px;
+			width: 160px;
+			height: 38px;
+			font-size: 14px;
+			border: 1px solid #eee;
+			border-radius: 40px;
+			background: #eee;
+			-webkit-transition: width .5s;
+			-webkit-transition-delay: .1s;
+			line-height: inherit;
+			color: inherit;
+			margin: 0;
+			cursor: text;
+		}
+		nav form .search-input:focus {
+			-webkit-transition-delay: 0s;
+			width: 240px;
+			outline: none;
+		}
+		nav form .search-btn {
+			position: absolute;
+			top: 4px;
+			right: 5px;
+			width: 30px;
+			height: 30px;
+			line-height: normal;
+			padding: 0;
+			color: #969696;
+			text-align: center;
+			border-radius: 15px;
+		}
+		nav form .search-btn i {
+			margin: 5px -1px 0 0;
+			display: block;
+		}
+		nav form .search-btn i::before {
+			content: '\e613';
+			font-size: 20px;
+		}
+		nav form .search-btn i.change::before {/*为JS添加类change改变伪元素属性*/
+			color: #f8f8f8;
+		}
+		/********搜索框隐藏区域*************/
+		nav .search-tips {
+			position: absolute;
+			background-color: #fff;
+			box-shadow: 0 0 8px rgba(0,0,0,.2);
+			margin-top: 9px;
+			width: 250px;
+			left: 0;
+			top: 100%;
+			border-radius: 4px;
+			visibility: hidden;
+			opacity: 0;
+		}
+		nav .search-tips::before {
+			content: "";
+			position: absolute;
+			left: 27px;
+			top: -5px;
+			width: 10px;
+			height: 10px;
+			z-index: -1;
+			-webkit-transform: rotate(45deg);
+			background-color: #fff;
+			box-shadow: 0 0 8px rgba(0,0,0,.2);
+		}
+		nav .search-tips .search-trending {
+			padding: 20px 20px 10px;
+			border-bottom: 1px solid #f0f0f0;
+		}
+		nav .search-tips .search-trending-header {
+			height: 20px;
+			margin-bottom: 10px;
+		}
+		nav .search-tips .search-trending-header::before {
+			content: " ";
+			display: table;
+		}
+		.search-trending-header span {
+			float: left;
+			font-size: 14px;
+			color: #969696;
+		}
+		.search-trending-header a {
+			float: right;
+			font-size: 13px;
+			background-color: transparent;
+			border-width: 0;
+			padding: 0;
+		}
+		.search-trending-header i {
+			display: inline-block;
+			line-height: 1;
+			transition: .5s ease;
+		}
+		.search-trending-header i::before {
+			content: "\e6a9";
+		}
+		nav .search-tips .search-trending-header::after {
+			content: " ";
+			display: table;
+			clear: both;
+		}
+		nav .search-tips .search-trending-tag li {
+			margin-right: 10px;
+			display: inline-block;
+			line-height: 28px;
+		}
+		nav .search-tips .search-trending-tag li a {
+			padding: 2px 6px;
+			font-size: 12px;
+			color: #787878;
+			border: 1px solid #ddd;
+			border-radius: 3px;
+		}
+		nav .search-tips .search-trending-tag li a:hover {
+			color: #333;
+			border-color: #b4b4b4;
+		}
+		/************以上是导航栏***************************/
+	.mainContent {
+		margin: 50px 480px 0px 210px;
+		padding: 30px 0 0 0;
+	}
+	.mainContent::after {clear: both;}
+	.middleconter {
+		float: left;
+		width: 100%;
+		/*background-color: red;*/
+		
+	}
+	.rightcolumn {
+		float: left;
+		width: 280px;
+		margin-right: -480px;
+		position: relative;
+		left: 40px;
+		
+		
+	}
+	.swiper-container {
+		height: 270px;
+		width: 625px;
+		margin-bottom: 40px;
+		border-radius: 8px;
+	}
+	.article-list {
+		margin: 0 17px 0 0;
+		padding: 0;
+		list-style: none;
+	}
+	.article-list li {		/**js加载的纯文字模式li样式**/
+		position: relative;
+		width: 100%;
+		margin: 0 0 15px;
+		padding: 15px 2px 20px 17px;
+		border-bottom: 1px solid #f0f0f0;
+		line-height: 20px;
+	}
+	.article-list li.have-img {	/**js加载含图片模式着li样式**/
+		min-height: 140px;
+	}
+	.article-list li.have-img .wrap-img {	/*含图片模式模式的a样式*/
+		width: 150px;
+		position: absolute;
+		top: 50%;
+		right: 0;
+		margin-top: -60px;
+		height: 100px;
+	}
+	.article-list li.have-img .wrap-img img {	/*tyle为含图片模式的a中图片样式*/
+		width: 100%;
+		height: 100%;
+		border-radius: 4px;
+		border: 1px solid #f0f0f0;
+		vertical-align: middle;
+	}
+	li.have-img .content {			/**含图片的content的div样式**/
+			padding-right: 165px;
+	}
+	li .content .title {
+		margin: -7px 0 4px;
+		display: inherit;
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 1.5;
+	}
+	li .content .title:hover {text-decoration: underline;}
+	li .content p {
+		margin: 0 0 8px;
+		font-size: 13px;
+		line-height: 24px;
+		color: #999;
+	}
+	li .content .meta {
+		padding: 0;
+		font-size: 12px;
+		font-weight: 400px;
+		line-height: 20px;
+	}
+	.meta span {
+		margin-right: 10px;
+		color: #ea6f5a;
+	}
+	.meta span i::before {
+		content: "\eaee";
+		font-size: 15px;
+	}
+	.meta a {
+		margin-right: 10px;
+		color: #b4b4b4;
+	}
+	.meta a:hover {
+		color: #787878;
+	}
+	.meta a i::before {
+		content: "\e687";
+		font-size: 10px;
+	}
+	.meta span.collection {
+		color: #b4b4b4;
+	}
+	.meta span.collection i::before {
+		content: "\e614";
+		font-size: 10px;
+	}
+	
+	.article-list>a.ad {		/**广告的样式**/
+		position: relative;
+		display: block;
+		padding: 15px 2px 20px 17px;
+		border-bottom: 1px solid #f0f0f0;
+	}
+	.article-list>a.ad::after {
+		clear: both;
+	}
+	a.ad div.img {
+		position: absolute;
+		top: 50%;
+		margin-top: -60px;
+		right: 0;
+		height: 100px;
+	}
+	a.ad div.img img {
+		height: 100%;
+		width: 100%;
+		border-radius: 4px;
+		border: 1px solid #f0f0f0;
+		vertical-align: middle;
+	}
+	a.ad div.info {
+		overflow: hidden;
+	}
+	a.ad div.info .title {
+		color: #333;
+		line-height: 27px;
+		font-size: 18px;
+		font-weight: 700;
+		margin-top: -4px;
+		margin-bottom: 4px;
+		cursor: pointer;
+	}
+	a.ad div.info .title:hover {
+		text-decoration: underline;
+	}
+	a.ad div.info .intro {
+		font-size: 13px;
+		color: #999;
+		overflow: hidden;
+		line-height: 24px;
+		max-height: 48px;
+		margin: 0 0 10px;
+	}
+	a.ad div.info span {
+		position: absolute;
+		left: 17px;
+		top: 95px;
+		display: block;
+		width: 38px;
+		height: 18px;
+		line-height: 16px;
+		text-align: center;
+		border-radius: 2px;
+		border: 1px solid #999999;
+		color: #999999;
+		font-size: 12px;
+	}
+	.list-container .load-more {	/***阅读更多***/
+		width: 95%;
+		height: 40px;
+		margin: 30px 17px 60px 17px;
+		border-radius: 20px;
+		background-color: #a5a5a5;
+		padding: 10px 15px;
+		text-align: center;
+		font-size: 15px;
+		color: #fff;
+		display: block;
+	}
+  /*********以下是右侧栏***8*****************/
+	.board {
+		margin-top: -4px;
+		padding-bottom: 4px;
+		min-height: 228px;
+	}
+	.board img {
+		width: 100%;
+		min-height: 50px;
+		margin-bottom: 6px;
+		border-radius: 4px;
+	}
+	.download {
+		position: relative;
+		margin-bottom: 30px;
+		padding: 10px 22px;
+		width: 100%;
+		border-radius: 6px;
+		background-color: #fff;
+	}
+	.download .qrcode {
+		width: 60px;
+		height: 60px;
+		opacity: .85;
+	}
+	</style>
+</head>
+ <body>
+	<!-- 导航栏 -->
+	<nav class = "nav-bar">
+		<div class = "width-limit">
+			<!-- 左上方LOGO -->
+			<a class = "jianshu-logo" href = "/"><img src = "jianshulogo.png" alt = "nav-logo"></a>
+			<!-- 右上角 -->
+			<a class = "write-btn" target = "_blank" href = "#1"><i class = "iconfont ic-write"></i>写文章</a>
+			<a class = "sign-up" href = "#2">注册</a>
+			<a class = "sign-in" href = "#3">登录</a>
+			<!-- beta图标 -->
+			<div class = "nav-beta">
+				<a href = "#4"><img src = "navbeta.png" alt = "beta"></a>
+			</div>
+			<!-- Aa显示 -->
+			<div class = "style-mode">
+				<a class = "style-mode-btn" href = "#5"><i></i></a>
+			</div>
+			<!-- 首页下载APP搜索栏menu显示 -->
+			<div class = "container">
+				<div class = "nav-menu">
+					<ul class = "nav-menu-ul">
+						<li class = "home-page">
+							<a><span>首页</span></a>
+						</li>
+						<li class = "download-app">
+							<a><span>下载APP</span></a>
+						</li>
+						<li class = "search">
+							<form target = "_blank" action = "/search" accept-charset = "UTF-8" method = "get">
+								<input name = "utf8" type = "hidden" value = "√">
+								<input type = "text" name = "q" id="q" value autocomplete = "off" placeholder = "搜索" class = "search-input">
+								<a class = "search-btn" href = "#js">
+									<i class = "iconfont search-i"></i>
+								</a>
+								<!-- 隐藏div的搜索词条 -->
+								<div id = "searchTips" class = "search-tips">
+									<div class ="search-trending">
+										<div class = "search-trending-header">
+											<span>热门搜索</span>
+											<a>
+												<i class = "iconfont" style = "transform: rotate(0deg);"></i>
+												换一批
+											</a>
+										</div>
+										<ul class = "search-trending-tag" id = "tags">
+										</ul>
+									</div>
+								</div>
+							</form>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!-- 主体内容 -->
+	<div class = "mainContent" id = "main-content">
+	  <!-- 中间列 -->
+	  <div class = "middleconter">
+		<!-- 轮播 -->
+		<div class = "swiper-container">
+			<div class = "swiper-wrapper">
+				<div class="swiper-slide"><img src="lunbo1.png"></div>
+				<!--  <div class="swiper-slide"><img src=""></div>-->
+			</div>
+			<div class="swiper-pagination"></div>	<!-- 分页器 -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+		</div>
+		<!-- 文章列表 -->
+		<div class = "list-container" id = "listCcontainer">
+			<ul id = "articleList" class = "article-list"></ul>
+			<a class = "load-more" href = "#">阅读更多</a>
+		</div>
+	  </div>
+	  <!-- 左列 -->
+	  <div class = "leftcolumn"></div>
+	  <!-- 右列 -->
+	  <div class = "rightcolumn">
+		<div class = "board">
+			<a href = "#r1"><img src = "jianshuvip.png" alt = "vip"></a>
+			<a href = "#r2"><img src = "jianshulianzai.png" alt = "优选"></a>
+			<a href = "#r3"><img src = "jianshucopyright.png" alt = "版权"></a>
+			<a href = "#r4"><img src = "jianshuschool.png" alt = "简书学堂"></a>
+		</div>
+	  </div>
+	</div>
+	<script>
+		$(document).ready(function(){
+			var searchtips = ["html","css","js","jquery","vue","区域链","投稿","理财","美食"]
+			$('#q').focus(function(){//输入框获取焦点事件
+				$('.search-btn').css({"background-color":"#969696"})
+				$('.search-i').addClass("change")
+				$('#searchTips').css({"visibility":"visible","opacity":"1"})
+				var addtag = ""
+				for(var i =0;i<searchtips.length;i++) {
+					var elementtag = "<li><a>"+searchtips[i]+"</a></li>"
+					addtag = addtag + elementtag
+				}
+				$('#tags').empty()	//先清空之前的内容
+				$('#tags').append(addtag)
+			})
+			$('#q').blur(function(){//输入框获取焦点还原
+				$('.search-btn').css({"background-color":"#eee"})
+				$('.search-i').removeClass("change")
+				$('#searchTips').css({"visibility":"hidden","opacity":"0"})
+			})
+		})
+		//轮播处理********
+		var myswiper = new Swiper ('.swiper-container',{
+			autoplay:true,			//自动切换
+			autoplay:{disableOnInteraction: false,},
+			direction: 'horizontal',//水平切换选项
+			loop: true,				//循环模式选项
+
+			pagination: {			//分页器
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			navigation: {			//前进后退按钮
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		})
+		//***文章列表加载*********
+		var listdata = [{	//**********模拟数据*************
+				type:'words',title:'6个值得玩味的Python代码',
+				href:'#a1',
+				content:'先选取了6个自己认为值得玩味的python代码,希望对正在学习 python 的你有所帮助。1、类有两个方法，一个是 __new__,...',
+				clicks:'11.8',writer:'somenzz',
+				comments:'3',collection:'88'
+			},
+			{
+				type:'normal',title:'刘强东，你还是向兄弟们下手了！',
+				href:'#a2',img:'list1.jpg',
+				content:'说起科技大佬们，刘强东不得不提。特别是去年在美国发生的事情对于他的影响很大，最近也在传他和奶茶妹妹离婚的事情。奶茶妹妹还拿了多少个亿的资产，不知...',
+				clicks:'14.2',writer:'雨中波密',
+				comments:'34',collection:'46'
+			},
+			{
+				type:'ad',title:'华为云年中采购季！全场1折起',
+				content:'全场1折起，认证即可抽奖，热门主机等你领>>',
+				href:'#ad1',
+				img:'jianshuad1.png'
+			}]
+		function addArticle() {
+			var addtext = ""
+			for (var i =0;i<listdata.length;i++ )
+			{
+				var elementall =""
+				var elementa ="<a class='title' href='#a1'>"+listdata[i].title+"</a>"
+				var elementp ="<p>"+listdata[i].content+"</p>"
+				var elementdiv ="<div class='meta'><span><i class='iconfont'></i>"+listdata[i].clicks+"</span><a href='#a2'>"+listdata[i].writer+"</a><a href='#a3'><i class='iconfont'></i>"+listdata[i].comments+"</a><span class='collection'><i class='iconfont'></i>"+listdata[i].collection+"<span></div>"
+				if (listdata[i].type=="words")
+				{
+					elementall ="<li><div class='content'>"+elementa+elementp+elementdiv+"</div></li>"
+				} else if (listdata[i].type=="normal")
+				{
+					var elementimg ="<a class='wrap-img' href='#a5'><img alt='120' src='"+listdata[i].img+"'></a>"
+					elementall ="<li class='have-img'><div class='content'>"+elementimg+elementa+elementp+elementdiv+"</div></li>"
+				}else if (listdata[i].type=="ad")
+				{
+					var ad_elementimg ="<div class='img'><img src ='"+listdata[i].img+"'></div>"
+					var ad_elementp ="<p class='title'>"+listdata[i].title+"</p>"
+					var ad_elementtext ="<p class='intro'>"+listdata[i].content+"</p>"
+					var ad_elementspan ="<span>广告</span>"
+					elementall ="<a class='ad' href = '#ad9'>"+ad_elementimg+"<div class='info'>"+ad_elementp+ad_elementtext+ad_elementspan+"</div></a>"
+				} 
+				addtext = addtext+elementall
+			}
+			return addtext
+		}
+		$("#articleList").append(addArticle())
+	</script>
+ </body>
+</html>

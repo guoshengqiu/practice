@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>vue todolist学习</title>
+    <script src="./vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <div>
+        <input type="text" v-model="inputvalue">
+        <button @click="dothis">提交</button>
+      </div>
+      <ul>
+        <!-- <li v-for="(item, index) of list" :key="index">{{item}}</li> -->
+        <todo-item
+          v-for="(item, index) of list"
+          :key='index'
+          :content="item"
+          :index='index'
+          @delete= 'removeli'
+        ><!--@delete监听子组件 触发了则执行父组件的removeli方法-->
+        </todo-item>
+      </ul>
+    </div>
+
+    <script>
+      Vue.component('todo-item', {
+        props: ['content', 'index'],//传参
+        template: '<li @click="removeclick">{{content}}</li>',
+        methods: {
+          removeclick: function() {
+            this.$emit('delete', this.index) //向外触发delete事件
+          }
+        }
+      })
+
+      new Vue({
+        el: '#root',
+        data: {
+          inputvalue: '',
+          list: []
+        },
+        methods: {
+          dothis: function() {
+            this.list.push(this.inputvalue)
+            this.inputvalue = ""
+          },
+          removeli: function(index) {
+            this.list.splice(index, 1)
+          }
+        }
+      })
+    </script>
+
+  </body>
+
+</html>

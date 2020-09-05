@@ -1,0 +1,141 @@
+1. 
+var number=2;
+var obj={
+       number:4,
+       fn1:(function(){
+               this.number*=2;
+               number=number*2;
+               var number=3;
+               return function(){
+                     this.number*=2;
+                     number*=3;
+                     alert(number);
+               }
+        })(),
+        db2:function(){this.number*=2}
+  }
+var fn1=obj.fn1;
+alert(number);//4
+fn1();//9
+obj.fn1();//27
+alert(window.number);//8
+alert(obj.number);//8
+
+2. 
+function foo(){return this.a}
+var a=2;
+var o={a:3,foo:foo}
+var p={a:4}
+console.log(o.foo());//3
+console.log((p.foo=o.foo)());//2
+console.log(p.foo());//4
+
+3. 
+function MyObj(){this.p.pid++;}
+MyObj.prototype.p={"pid":0};
+MyObj.prototype.getNum=function(num){return this.p.pid+num;}
+
+var _obj1=new MyObj();
+
+var _obj2=new MyObj();
+
+console.log(_obj1.getNum(1)+_obj2.getNum(2));
+
+4. 
+window.a=300;
+var a=new fn1().b;
+function fn1(){
+    this.a=100;
+    this.b=200;
+    return function(){alert(this.a)}.call(arguments[0]);
+}
+function fn2(){
+    this.a=new fn1();
+}
+var v=new fn1(fn2());//300 200
+console.log(v());//[object Object]
+
+5. 
+var a=2;
+var obj={x:1,y:{z:2}};
+var n=[obj,3,[4,5]];
+console.log(a<<2);//8
+console.log(obj["y"].z);//2
+console.log(n[0].y["z"]);//2
+console.log(n[2],["1"]);//[4,5]["1"]
+
+6. 对面向对象的理解
+    什么是面向对象？面向对象就是在程序中，用一个对象描述现实中一个事物
+
+    为什么使用面向对象？因为面向对象更接近于人的思维方式，更便于代码维护。
+
+    面向对象三大特点：封装，继承，多态
+
+    封装：讲现实中一个事物的属性和方法，集中定义在程序中的一个对象中。
+
+    为什么要封装：更接近于人的想法，便于代码维护。
+
+    继承：父对象中的成员，子对象可以直接使用。
+
+    为什么要继承：代码重用！节约内存空间
+
+    多态：同一样东西，在不同情况下表现出不同的状态。
+
+    多态方式：重写，重载：
+
+    重载：多个同名方法，但参数列表不同，调用时，可根据传入参数的不同，动态决定调用何种匹配的方法。
+
+    为什么使用重载：便于调用，减少调用者负担。
+
+        js语法不支持重载，但可用arguments对象模拟重载效果。
+
+    重写：子对象觉得父对象的成员不好用，可在本地定义与父对象同名的成员，覆盖父对象的成员
+
+    为什么使用重写：专门定义子对象与父对象之间的差异。
+
+7.
+function MyObj(){ //构造函数，每创建一个构造函数，自动调用一次
+    this.p.pid++;
+}
+MyObj.prototype.p={"pid":0} //原型中的共有属性，所有对象共用
+MyObj.prototype.getNum=function(num){
+    return this.p.pid+num;
+}
+var _obj1=new MyObj(); //MyObj.prototype.p.pid =1
+var _obj2=new MyObj(); //MyObj.prototype.p.pid =2
+console.log(_obj1.getNum(1)+_obj2.getNum(2));  //7
+
+8.
+function Human(){
+    ____
+}
+var boy=new Human();
+var man=Human();
+boy===man;?
+如何让boy===man成立？
+
+9. 
+var length = 10;
+function fn() {console.log(this.length);}
+var obj = {
+  length: 5,
+  method: function(fn) {
+    fn();
+    arguments[0]();
+  }
+};
+obj.method(fn, 1); //10  2
+
+10. 
+var foo=function(){
+    console.log(this.a);
+}
+var obj={a:2,foo:foo};
+var a=10;
+var bar=obj.foo;
+var bar2=foo.bind(obj);
+bar();
+bar2();
+foo();
+obj.foo();
+setTimeout(bar,0);

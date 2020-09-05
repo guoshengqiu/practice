@@ -1,0 +1,137 @@
+正课：
+1. Object对象
+2. 数组API
+3. bind
+4. 严格模式
+
+1. Object对象：
+   一次定义多个属性及其特性：
+   Object.defineProperties(对象,{
+	属性1:{特性1:特性值,...},
+        ...
+   });
+   ***凡是新添加的属性，除value外，其余三大特性默认都为false！
+
+   内部属性：对象自带的属性，甚至不能从外部直接用.访问
+     __proto__: 引用当前对象的父对象，实现继承
+     extensible: 可随时向对象中添加新属性，默认为true
+                 如果改为false，不能为对象添加新属性
+                                但仍可修改旧属性
+     class: 当前对象的类型名(构造函数名)
+            强行调用Object的原型中的原始toString方法！
+            Object.prototype.toString.call(要查看的对象)
+
+   Object构造函数: var obj=new Object();
+     1. var obj=Object(); ==> new Object(); new可省略
+     2. 将原始类型的值封装在包装类型对象中:
+        var obj=Object(100); ==>new Number(100);
+           obj ==> Number{PrimitiveValue:100}
+
+   Object.create(): 基于一个父*对象*，创建并扩展一个子对象
+      var newObj=Object.create(父对象,{
+           新属性:{四大特性},
+           ...
+      })
+      //1. 创建一个新对象
+      var newObj=new Object();
+      //2. 设置新对象继承父对象
+      newObj.__proto__=父对象;
+      //3. 为新对象扩展新属性，及其四大特性
+      Object.defineProperties(newObj,{
+           新属性:{四大特性},
+           ...
+      });
+
+    防篡改：3个层次：
+      1. 禁止扩展：不允许添加新的属性
+                  还是可以修改旧属性的特性
+         内部:extensible 表示当前对象是否可扩展新属性
+              判断当前对象是否可扩展？
+              Object.isExtensible(要检测的对象)
+              其实就是返回extensible的值(true/false)
+              如何禁止扩展：
+              Object.preventExtensions(要禁止扩展的对象)
+      2. 密封：不允许添加新的属性：Object.preventExtensions()
+             不可以修改旧属性的特性
+             不可以删除旧属性
+		将所有属性的configurable改为false
+             仅可以修改属性值
+             判断对象是否密封:Object.isSealed(被检查对象)
+			如果密封，返回true，否则返回false
+                        默认是不密封，false。
+             如何密封对象:Object.seal(要密封的对象)
+      3. 冻结：禁止修改对象的任何属性及属性值
+             判断对象是否被冻结:
+             Object.isFrozen(被检查对象);
+                 如果没有被冻结，返回false，否则返回true
+                 默认是false
+             如何冻结对象：
+             Object.freeze(要冻结的对象);
+
+2. 数组API：
+    1.***鄙视题：判断一个对象是不是数组：几种办法
+       typeof无法区分对象和数组：typeof [] object
+                                 typeof {} object
+       1. obj instanceof 构造函数名/类型名
+       2. Array.prototype.isPrototypeof(obj)
+      *3. Object.prototype.toString.call(obj) [object Array]
+       4. ES5: Array.isArray(obj)
+                obj是数组，则返回true，否则返回false！
+       判断并实现自定义isArray方法: 见课堂练习
+
+    2. 迭代API;依次操作数组中每个元素的API
+       1. every: 判断数组中每个元素是否都满足条件
+            只有都满足条件才返回true，
+            只要有一个不满足就返回false
+          语法：arr.every(function(value,index,array){
+   		     return 条件
+                })
+          some: 判断数组中是否*包含*满足条件的元素
+            只要有一个满足就返回true
+            只有都不满足时才返回false
+       2. forEach: 对*原数组*中每个元素执行相同操作
+               强调：直接修改原数组！
+               参数：同every，不需要return！
+               arr.forEach(function(value,index,array){
+                    操作当前元素
+               })
+         *map: 将原数组中每个元素，经过加工，生成一个*新数组*
+	       var newArr=arr.map(function(value,index,array){
+                    return 要放入新数组的值
+               })
+          作业：查找 map的源代码，鄙视题：map的实现原理
+
+       3. 过滤: filter: 查找数组中满足条件的元素，返回新数组
+	  var subArr=arr.filter(function(value,index,array){
+	      return 对当前值的判断结果
+          })
+           只有条件返回true的元素，才保留
+
+       4. 汇总：reduce(): 从头开始，依次汇总每个元素
+                         返回一个最终值！
+          var result=
+		arr.reduce(function(prev,curr,index,array){
+                     return 将curr累加到prev上
+                }[,初始prev])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

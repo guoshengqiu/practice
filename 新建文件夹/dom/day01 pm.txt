@@ -1,0 +1,105 @@
+正课：
+1. ***DOM Tree
+   *****递归遍历DOM Tree
+2. *查找
+
+1. ***DOM Tree
+   *****递归遍历DOM Tree： 手写
+   遍历：查看一个父节点下的所有子节点
+   递归遍历：对每个子执行相同的查找操作！
+             在函数内又调用了函数本身。
+   何时递归：不确定子节点层级深度时
+   如何递归：2步：
+     1. 先定义一个函数，仅遍历直接子节点
+     2. 在遍历过程中，对每个直接子节点执行相同的遍历操作！
+   深度优先：对每个子节点，都优先遍历下级节点，直到叶子节点才返回上一级。
+   缺点：占用更多内存空间，且执行效率低
+   vs 循环：循环是在一个EC内反复执行相同代码段，效率高！
+
+   遍历API：
+     1. NodeIterator：按照深度优先的属性，依次遍历每个节点对象
+        如何使用：2步：
+        1. 创建对象：var iterator=document.createNodeIterator(
+                         开始节点对象,
+                         显示何种节点,NodeFilter.SHOW_ALL
+                                  NodeFilter.SHOW_ELEMENT
+                         null,false
+                     );
+        2. 使用循环，推动迭代器移动到下一个节点：
+     2. TreeWalker: 基本用法和NodeIterator完全一样
+          比NodeIterator，多提供了灵活的跳转方法：
+            walker.parentNode()
+            walker.firstChild()
+            walker.nextSibling()...
+
+2. *查找：2大类：
+   1. 按HTML属性查找：
+      1. 按id查找：
+      var elem=document.getElementById("id值");
+      2. 按标签名查找所有子元素
+      var elems=elem.getElementsByTagName("标签名");
+      返回动态集合：不实际保存节点对象，仅保存节点对象的引用
+	每访问一次集合中元素或属性，都会重新查找！
+        还有：childNodes children
+      ***如何遍历：
+	for(var i=0,len=childNodes.length;i<len;i++)
+      强调：不仅查找直接子节点，而且还找所有子代节点
+            如果仅找到1个节点对象，也放在数组里返回，elems[0]
+      3. 按name属性查找:
+         var elems=elem.getElementsByName("name属性值");
+      4. 按class属性名查找: IE9+
+         var elems=elem.getElementsByClassName("class属性值");
+
+   2. 按选择器查找：Selector API - jQuery的核心！
+        1. 只找1个元素: 
+           var elem=parent.querySelector("css选择器");
+            无论找到几个，仅返回第一个符合条件的
+        2. 找多个元素:
+           var elems=parent.querySelectorAll("css选择器")
+           返回非动态集合：实际保存节点对象
+           即使反复使用集合中的元素或属性，也不会反复查找.
+           for(var i=0;i<elems.length;i++){...}
+
+     ***鄙视题：Selector API vs getxxxByxxx()
+        getXXXBYxxx(): 优：执行效率高
+                      缺：繁琐
+           返回值: 返回动态集合，不实际保存节点对象
+                   只要访问集合的元素和属性都要重新查找
+        何时使用：如果经过一次查找即可获得结果时
+
+        Selector API: 优：易用
+                      缺：执行效率低
+           返回值: 返回非动态集合，实际保存每个节点对象的属性
+                   访问集合的元素和属性，不会导致重新查找
+        何时使用：需要经过多级选择器查找时
+
+    作业：素材: 7_1
+          TMOOC0课后练习:3,4
+        
+    鄙视题：
+  var emp={
+      work:function(){
+          var sum=0;
+          for(var i=0;i<arguments.length&&arguments[0]>0;i++){
+            //callee等效于当前函数对象——实现递归
+	    sum+=arguments[i]+arguments.callee(--arguments[i])
+          }
+          return sum;
+      }
+  }
+  console.log(emp.work(3,2,1));//?
+
+         
+      
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,91 @@
+回顾：
+1. *****继承：
+   3. 继承原型，扩展结构：2步：
+      inherit   extends
+      1. 设置子类型的原型对象，继承父类型的原型对象
+      2. 在子类型构造函数开始位置，用call调用父类型构造函数
+2. call和apply：
+   都是调用一个函数的同时，临时修改EC中的this值为新对象
+   如果不考虑传入参数，则二者完全相同！
+   语法: 函数.call(替换this的对象,参数值1,....)
+         函数.apply(替换this的对象,[参数值1,...])
+   差别：call，参数只能单独传入
+         何时使用：不需要传入参数或传入参数较少时
+         apply, 参数可以以数组方式传入
+         何时使用：传入参数较多，且可能发生变化时
+
+正课：
+1. ES5 特性
+   Object的新特性
+   数组的增强API
+   1个函数的API:bind
+   严格模式
+
+1. Object的新特性：对象其实就是属性的集合
+     属性：命名属性：一切自定义的属性
+           内部属性：对象中自带，甚至不能直接访问的属性
+
+     命名属性：数据属性：专门保存一个数据的属性
+               访问器属性：专门保护一个属性的特殊属性
+
+     数据属性：每个属性(Property)其实都有4个特性(Attribute)
+         value: 专门保存属性值
+         writable: true/false 规定属性值能否被修改
+         enumerable: true/false 规定for in中能否遍历到该属性
+         configurable: true/false 规定该属性能否被delete删除
+                              以及能否修改除value外的其他特性
+                              一旦改为false，不可逆
+     API：获取指定对象的，指定属性的 特性(对象)
+       var descriptor=
+               Object.getOwnPropertyDescriptor(对象,"属性名");
+          修改属性的特性，只能用defineProperty方法
+       Object.defineProperty(对象,"属性名",{
+            value:?,
+            writable:?,
+            enumerable:?,
+            configurable:?
+       })
+       如果属性已存在，则修改旧属性；如果不存在，则创建新属性
+
+       鄙视题：clone新对象——见课堂练习
+         如果一个属性，禁用遍历，则无法被克隆到新对象
+
+     访问器属性：专门保护一个属性的特殊属性：
+         访问器属性，本身没有value和writable特性——不存值
+         保存一对儿函数：get/set
+	   自动调用：
+	   	get: 专门负责获得受保护的属性值
+                     当试图从访问器属性中取值时，自动调用
+           	set: 专门设置受保护的属性值
+                     当设置访问器属性的值时，自动调用
+           
+         访问器属性的特性：
+         {
+            get:function(){return 属性值;},
+            set:function(value){
+                if(验证value)
+                    throw new Error(...);
+                else 
+                    属性名=value;
+            },
+            enumerable:true/false,
+            configurable:true/false
+         }
+       何时使用：如果希望保护一个变量不被随便赋值或取值时
+       如何添加：必须用defineProperty
+         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+正课：
+1. ***HTML DOM常用对象: Table Form
+
+1. Table对象：
+   Table:createTHead() deleteTHead()
+         createTFoot() deleteTFoot()
+         createTBody() 
+     tHead: insertRow(i),如果省略表示追加
+            deleteRow(i),如果省略优先删除首行
+	rows：统领当前行分组下的tr
+        row.rowIndex: 获得当前行的下标！专门用于删除当前行
+           强调：rowIndex是从整个表格的第一个tr开始计算
+           删除: table.deleteRow(row.rowIndex);
+	    insertCell(i),如果省略表示追加
+            deleteCell(i),如果省略优先删除首格
+     	    cells: 当前列中的所有td
+            cell.cellIndex: 获得当前格的下标，专用于删除
+     tBodies
+	tBody
+           rows：统领当前行分组下的tr
+	       cells: 当前列中的所有td
+     tFoot
+	rows：统领当前行分组下的tr
+	    cells: 当前列中的所有td
+     
+     rows: 统领table下所有tr
+     table.insertRow(i),如果省略: 默认追加在最后一个行分组内
+     table.deleteRow(i),如果省略: 优先删除首行
+
+    课堂练习：window.confirm("确认信息")
+                如果用户选择确认：返回true
+                如果用户取消：返回false
+
+2. Form对象：
+   1. 快速获取表单元素:var form=document.forms[i/id/name];
+   2. 快速获取表单中的元素：var elem=form.elements[i/name]
+	elements中仅包含数据采集类的元素，比如:input,select...
+                      其实.elements可省略
+   表单的方法: 
+      手动提交: form.submit();
+   表单的事件:
+      onsubmit: 在正式提交前触发，主要做验证
+                如果验证没通过可取消事件！
+   表单元素的方法：
+      elem.focus(): 将elem设为焦点！
+           比如：一个elem验证失败时，希望直接定位到失败的元素
+      elem.blur(): 将elem失去焦点!——多数自动控制
+                      
+
+
+
+
+
+
+

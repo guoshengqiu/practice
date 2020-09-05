@@ -1,0 +1,53 @@
+回顾：
+1. 自定义属性：
+   elem.getAttribute("data-属性名") - 所有浏览器都兼容
+   html5： elem.dataset.属性名
+
+正课：
+1. ***修改样式：2处：
+   1. 仅获取或设置内联样式：
+        elem.style.属性名="值";
+      其实elem.style是CSSStyleDeclaration类型的对象
+          封装了一个元素所有css样式属性的值
+      固定套路：清除一个元素的所有内联样式: 
+		elem.style.cssText="";
+   2. 获取元素最终应用的所有样式：计算后的样式
+        var style=getComputedStyle(elem);
+            style也是CSSStyleDeclaration类型的对象
+                  IE8：elem.currentStyle;
+            style.属性名
+   只要设置：elem.style.属性名 -> 加入内联样式，优先级最高！
+                                  不影响其他元素的样式
+   只要获取：var style=getComputedStyle(elem)
+
+   3. 改样式表中的样式：3步：chrome不支持本地的外部css文件
+      1. 从样式表集合中获取第i个样式表对象
+          var sheet=document.styleSheets[i]
+              sheet是CSSStyleSheet类型的对象：
+               1. sheet.cssRules集合: 样式表中所有cssRule对象
+                   cssRule对象：css中每个{}就是一个cssRule对象
+                  cssRule下还可包含子Rule,比如: @keyframes
+               2. cssRule对象下，又包含:
+                  1. cssText: 保存Rule完整的字符串
+                  2. selectorText: 选择器名称
+                 *3. style: CSSStyleDeclaration
+                      style.属性名
+      2. 获取CSSRule对象：
+          var rule=sheet.cssRules[i]
+      3. 通过rule获得style对象
+          var style=rule.style
+              style.属性名='值';
+
+    作业：4_1
+        TMOOC 第三题
+                    
+
+
+
+
+
+
+
+
+
+

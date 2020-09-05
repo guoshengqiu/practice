@@ -1,0 +1,71 @@
+正课：
+1. BOM：
+   window对象：
+    打开关闭链接
+    窗口大小和定位
+    ***定时器
+
+1. BOM：专门操作浏览器窗口的API 
+    window: 2个角色：
+     1. 带ES中的Global成为全局作用域
+     2. 封装了浏览器软件和窗口对象的属性和方法-BOM
+
+    打开新连接的方式总结: 4种情况：
+      1. 替换当前窗口，允许后退
+	html: <a href="url">xxx</a>
+        js: open("url","_self");
+      2. 替换当前窗口，不允许后退
+        js: 
+        history对象：保存当前窗口打开过的url历史记录的栈
+        location对象：保存当前窗口正在打开的url的对象
+           location.replace("url");
+      3. 在新窗口打开，可重复打开
+        html: <a href="url" target="_blank">xxx</a>
+        js: open("url")
+      4. 在新窗口打开，不可重复打开
+        html: <a href="url" target="name">xxx</a>
+        js: open("url","name")
+      [var newWin=window.]open("url"[,"name","config"])
+            window.可省略
+            返回值，新打开的窗口对象！
+		newWin相当于新窗口中的window！
+            "name"，默认是_blank,可省略
+                如果自定义name参数，则新窗口不可重复打开
+
+    每个window对象在内存中都有一个唯一的name属性
+    浏览器规定，相同name属性的窗口只能打开一个！
+                后打开的窗口，会替代先打开的
+
+    窗口大小和窗口定位：
+      1. 打开窗口时，设置窗口大小和位置：
+         open("url","name",config)
+         config="top=?,
+                 left=?,
+                 width=?,
+                 height=?,//仅包含文档显示区
+                 resizable=yes,
+                 location=no";
+      2. 获取窗口宽高：window.innerHeight/Width: 文档显示区
+                       window.outerHeight/Width: 整个窗口
+      3. screen对象：当前桌面的分辨率信息
+           screen.height/width: 操作系统的桌面分辨率
+           screen.availHeight/Width: 桌面可用的大小范围
+                                     去掉任务栏
+      4. 调整大小：window.resizeTo(width,height)
+                   window.resizeBy(宽度的增量，高度的增量)
+      5. 移动窗口位置：window.moveTo(left,top);
+                       window.moveBy(left的增量,top的增量)
+
+      事件发生时，获取鼠标相对于桌面的x和y坐标:
+          e.screenX/screenY
+
+
+
+
+
+
+
+
+
+
+

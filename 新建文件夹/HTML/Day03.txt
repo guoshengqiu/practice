@@ -1,0 +1,250 @@
+﻿1、结构标记 
+   1、作用
+      为了提升代码的语义性
+   2、结构标记
+         1、header 元素
+	     语法：<header></header>
+		 作用：表示信息部分的头部内容,页眉
+		       等同于 <div id="head"></div>
+			   <header id="head"></header>
+			   ....
+			       <header id="content_header"></header>
+	  2、nav 元素
+	     navigation : 导航
+		 语法：<nav></nav>
+		 作用：表示或定义页面中的导航链接部分
+		       等同于 <div id="nav"></div>
+	  3、section 元素
+	     语法：<section></section>
+		 作用：定义文档中的节(主体内容中的某一部分)
+		       等同于 <div id="section"></div>
+	  4、article 元素
+	     article ：文章
+		 语法：<article></article>
+		 作用：定义与文字性相关比较强的内容，如：帖子，报纸文章、博客条目、微博信息
+	  5、footer 元素
+	     foot ：脚
+		 语法：<footer></footer>
+		 作用：定义页面中靠下的部分内容，页脚内容，多数会将 版权信息、友情链接 等相关内容放在此标签中。
+		 等同于：<div id="footer"></div>
+	  6、aside 元素
+	     语法：<aside></aside>
+		 作用：定义页面的一些额外组成部分。
+		       一般情况下，边栏可以使用 该标记
+		 等同于:<div id="aside"></div>
+
+2、表单
+   1、表单的作用 
+      收集用户信息，并将用户信息提交给服务器
+
+      1、表单元素
+      2、表单控件
+   2、表单元素
+      语法：<form></form>
+      属性：
+           1、action
+	      作用：定义表单被提交时所发生的动作。主要用于定义表单提交的地址
+	      默认 为 提交给本页
+	   2、method
+	      方式、方法
+	      作用：表单数据提交的方式
+	      取值：get 和  post
+	        get:获取，取得，获取
+		post:邮寄，发送
+	      1、get ：表单将以【明文】的方式将数据发送给服务器。安全性较低。有大小限制，大小限制为 2KB。
+	      常用场合：与【搜索相关】、无安全性要求的。
+	      2、post ：表单将以 【隐式】的方式将数据发送给服务器。安全性较高。大小没有限制。
+	      常用场合：登陆操作、注册操作
+
+	      method 如果不写，默认值为 get
+	   3、enctype
+              作用：表单数据进行编码的方式
+	      取值：
+	        1、application/x-www-form-urlencoded
+		默认的
+		2、multipart/form-data    【？？？？？】
+		   适用场合：如果表单中有【文件】需要提交的话，那必须将enctype设置为此值
+	   4、name
+	      定义表单的名称
+	   5、id
+	      定义表单在页面中的唯一标识
+     3、表单控件
+        用不同的外观形式展现出来的用于接受用户数据的内容。
+	常用表单控件：
+	  1、input 元素
+	  2、多行文本域(textarea)
+	  3、选项框 (select , option)
+
+	  1、input 元素
+	     语法：<input />
+	     通用属性：
+		1、type ：根据 type 值 ， 来创建不同的input 元素
+		2、value ：值，当前控件的值(默认值)
+		3、name ： 控件的名称
+		   使用场合：服务器
+		4、id : 控件的唯一标识
+		   使用场合：当前页面
+		5、disabled : 禁用
+
+             input 中的具体元素
+	     1、文本框与密码框
+	       文本框:type="text"
+	       <input type="text" />
+	       密码框:type="password"
+               <input type="password" />
+	       属性：
+	             name:
+		     value:
+		     maxlength : 限制输入的字符数
+		     readonly : 设置元素为只读
+		     placehoder:密文形式显示
+		     value：内容
+	     2、单选按钮 、复选框
+	        单选按钮：<input type="radio" />
+		属性：
+		     name ：除了定义名称为，还能够为单选按钮分组
+		     checked : 设置 默认被选中
+		复选框：<input type="checkbox" />
+		属性：
+		     name：定义名称 和 分组
+		     checked：设置默认被选中
+	     3、按钮
+	        1、提交按钮
+		   具备 提交 的功能,将表单中的数据提交给服务器
+		   <input type="submit" />
+		2、重置按钮
+		   具备 默认值功能 ,将表单中的所有表单元素全部恢复成初始化状态
+		   <input type="reset" />
+		3、普通按钮
+		   作用：无任何功能，可以由用户定义功能(js)
+		   <input type="button" />
+	     4、隐藏域 、文件选择框
+	        1、隐藏域
+		   对服务器 来讲非常重要，单又不想给用户去看的东西，可以放在隐藏域里
+
+		   隐藏域是页面上看不到，但是能随着表单提交给服务器的控件
+
+		   <input type="hidden" />
+		   name : 定义名称
+		   value : 定义值
+		2、文件选择框
+		   打开本机 的 ”打开“对话窗口，并且选择文件，上传到服务器
+		   <input type="file" />
+		   属性：
+		      name ：定义名称
+		   注意：
+		     1、method 必须 为 post
+		     2、enctype 必须更改为 multipart/form-data
+
+              2、label 元素
+	         作用：关联 文本 与 控件的。点击文本就等同于点击它所关联的那个控件。
+		 语法：<label>关联的文本</label>
+		 属性：
+		     for : 与当前文本相关联的控件的【ID】值
+	      3、选项框
+	         分类： 
+		    1、下拉选项框
+		    2、滚动列表
+		 1、下拉选项框
+		    <select></select>
+		    属性：
+		       name ：名称
+		       id ：唯一标识
+		       size : 大于1，则为滚动列表
+		       multiple:设置多选,(针对滚动列表有效)
+		    <option>显示的文本</option>
+	            属性：
+		       value ：选项的值
+		       selected ：预选中
+
+	      4、多行文本域 textarea
+	         多行的文本框
+		 语法：<textarea></textarea>
+		 属性：
+		      readonly : 设置为只读  		【作用是什么？用于什么地方？什么领域？】
+		      cols : 设置文本域的 列数,一行能显示多少个字符,变相设置宽度
+		      rows : 设置文本域的 行数,整个文本域默认显示几行,变相设置高度。
+	      5、为控件分组
+	         语法：
+		   <fieldset></fieldset> : 分组  	【？？？？】
+		   <legend></legend> : 为分组指定标题	【？？？？】
+3、其他标记 
+   1、浮动框架 iframe
+      语法:<iframe></iframe>
+      属性：
+           src : 引入的网页URL
+	   width:宽度
+	   height:高度
+	   frameborder:引入的网页的边框宽度
+   2、摘要与细节
+      可以对网页上的某部分信息进行展开和收缩
+      语法：
+       <details></details> : 定义细节内容
+	<summary></summary> : 定义细节内容的标题
+   3、度量元素
+      按照一定比例的方式去显示数值
+      语法：
+       <meter></meter>
+      属性：
+         min ：度量范围的最小值，默认为0
+	 max ：度量范围的最大值，默认为1
+	 value：当前的度量值，默认值为0
+   4、时间元素
+      语法：
+        <time>文本</time>
+      属性：
+        datetime:规定当前元素的日期和时间 用T进行分割
+      eg:
+         今年<time datetime="2016-2-14T15:00">情人节</time>，我跟你过！
+   5、高亮文本显示
+      以特殊的效果 显示 所包含的文本
+      特殊效果：默认情况下，背景颜色为黄色
+      语法：<mark>文本</mark>
+
+
+
+
+
+
+
+
+
+
+
+
+test?userName=admin&userPwd=test&gender=female&hobby=drink
+
+test?userName=dsfsafd&userPwd=dfsafsafsa&gender=female&hobby=eat&hobby=drink&hobby=play&hobby=happy
+
+test?userPwd=dsadasf&gender=female&hobby=drink
+
+
+test?userName=请输入用户名称&userPwd=&gender=male&userID=110120119
+
+控件取名：适用于 name  和  id
+  name 属性值 ， 可以 与 id属性值取值相同
+  1、命名规范
+     匈牙利命名法
+     控件的缩写作为前缀
+     文本框：type="text"  ==>  txt
+     密码框：type="password" ==> txt
+     单选按钮: type="radio" ==> rdo
+     复选框： type="checkbox" ==> chk
+     按钮(提交、重置、普通) ： ==> btn
+
+     隐藏域、文件选择框: ==> txt
+
+     前缀后，跟着当前控件的 【作用名称】
+     作用名称：每个单词的首字符 大写，其余小写。
+
+     <input type="text" id="txtUsername" />
+     <input type="radio" id="rdoFemale" />
+     <input type="submit" id="btnSubmit" />
+  2、尽量保证见名知意
+     txtLoginName
+  3、尽量避免重复
+
+
+
+
+

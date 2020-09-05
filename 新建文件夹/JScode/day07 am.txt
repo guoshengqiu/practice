@@ -1,0 +1,74 @@
+正课：
+1. *Date对象：
+   
+1. *Date对象：封装一个时间值，提供对时间的操作方法
+   Date对象中封装了1970年1月1日0点至今的毫秒数
+   何时使用：计算日期前，都要创建或获得日期对象
+    
+    创建：4种：
+    1.var now=new Date();//创建日期对象,同时封装客户端系统时间
+         now.getTime();//获得日期对象中封装的毫秒数
+    2.var date=new Date("yyyy/mm/dd[ hh:MM:ss]");自定义时间点
+    3.var date=new Date(yyyy,mm,dd,hh,MM,ss);——了解
+     ***date对象中，月数从0~11结束。现实中的月份要-1修正
+                        从日期对象中取出的月份都要+1修正
+    4.复制一个日期对象：在计算之前，将旧日期对象中的毫秒数取出，放入一个新的日期对象中保存副本。
+      Why：所有日期API都直接修改原日期对象，无法保留旧值
+       var old=new Date("yyyy/mm/dd");
+       var newDate=new Date(old.getTime());
+       结果：修改newDate，old不会受影响
+
+   日期API：手册：JavaScript->JavaScript 对象->JS Date
+     分量：FullYear Month Date Day(星期)
+           Hours Minutes Seconds Milliseconds
+     1. 每个分量都有一对儿get/set方法
+        比如:getFullYear,setFullYear
+             getMonth，setMonth
+             ...
+        var 值=date.getXXX()，返回指定分量的数值
+        date.setXXX(值)，修改一个分量的值
+            自动调整时间进制
+        ***例外：Day没有set方法
+     2. 命名：年月日星期，不带s结尾
+              时分秒毫秒，带s结尾
+          比如：date.setDate(n)
+                date.setMinutes(n)
+     3. 返回值：只有Date，从1开始到31结束
+                其余都是从0开始到进制-1结束
+          比如：Hours 0~23 ——和现实中一样，不需要修正
+                Minutes 0~59 ——不需要修正
+             ***Month 0~11 ——比现实中少1，需要+1/-1修正
+                Day 0~6 ——和现实中一样，不需要修正
+                日 一...六
+                 0  1    6
+   日期计算：2种：
+     1. 使用毫秒值直接计算：只适用于计算一天以内的时间
+          两日期对象可直接相减=毫秒差
+          利用毫秒差/进制获得时间差
+     2. 使用API计算：可计算任意范围内的任意时间
+          3步：
+          1. 取分量: var n=date.getXXX();
+          2. 做加减: n+=?;
+          3. 放回去: date.setXXX(n);
+          整合为一步:
+          date.setXXX(date.getXXX()+?);
+          问题：直接修改date值，原日期值丢了
+          解决：先复制日期对象的副本，再用新对象计算新值
+
+   日期转字符串：
+       1. toString()输出的是完整的标准日期时间格式，带时区
+       2. toLocaleString()输出浏览器当地时间的完整格式
+       3. toLocaleDateString()仅输出浏览器当地时间的日期部分
+       4. toLocaleTimeString()仅输出浏览器当地时间的时间部分
+          
+    
+
+
+
+
+
+
+
+
+
+    

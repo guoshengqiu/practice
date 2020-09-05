@@ -1,0 +1,52 @@
+正课：
+1. *字符串API：
+2. ****正则表达式：
+
+1. *字符串API：所有API都无法修改原字符串，都会返回新字符串
+   1. 大小写转换：
+        var newStr=str.toUpperCase();-将str中所有字母转大写
+        var newStr=str.toLowerCase();-将str中所有字母转小写
+      何时使用：大小写一视同仁时
+   2. 获得指定位置的字符：
+        var char=str[i]
+        var char=str.charAt(i);
+      获得指定位置字符的unicode号-number
+        var unicode=str.charCodeAt(i);
+	将unicode号翻译回字符正文: 
+         var char=String.fromCharCode(unicode);
+   3. 检索敏感词位置：
+       var i=str.indexOf("敏感词"[,fromi])
+        从fromi位置向后找下*一个*敏感词出现的位置
+        找到：返回敏感词第一个字符的位置下标；没找到：-1
+        省略fromi,则默认从0位置开始
+       var i=str.lastIndexOf("敏感词"[,fromi])
+        从fromi位置向前找上*一个*敏感词出现的位置
+        找到：返回敏感词第一个字符的位置下标；没找到：-1
+        省略fromi,则默认从结尾位置开始
+   4. 获取子字符串：
+       var subStr=str.slice(starti[,endi+1]) 支持负数参数
+       var subStr=str.substring(starti[,endi+1])不支持负数参数
+          str.slice(-4,-2)
+          str.substring(length-4,length-2)
+       都可省略第二个参数，如果省略，表示一直截取到结尾
+       var subStr=str.substr(starti,n)
+                  从starti位置开始，截取n个。
+   5. 切割字符串：
+       var arr=str.split("分割符");
+         切割后的数组中不包含分隔符的
+       固定套路：1. 将字符串打散成字符数组
+         var arr=str.split("")
+         2. 将英文句子，切割为单词
+         var arr=str.split(" ");
+       
+
+
+
+
+
+
+
+
+
+
+  

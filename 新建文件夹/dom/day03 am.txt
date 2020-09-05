@@ -1,0 +1,60 @@
+正课：
+1. 创建和删除节点：
+2. HTML DOM常用对象：Table Select Form
+
+1. 创建和删除节点：——核心DOM
+   1. 创建单个元素节点：3步：
+      1. 创建空元素节点对象：
+         var elem=document.createElement("标签名");
+        比如: var a=document.createElement("a");
+          html: <a></a>
+      2. 设置新元素的关键属性：
+        比如: a.href="http://tmooc.cn";
+              a.innerHTML="go to tmooc";
+          html: <a href="http://tmooc.cn">go to tmooc</a>
+      3. 将新节点挂到DOM Tree的指定父节点下：3种：
+        追加：parent.appendChild(elem);
+        插入：parent.insertBefore(elem,oldElem);
+        替换：parent.replaceChild(elem.oldElem);
+   2. 创建多个平级元素节点：3步：
+      1. 先创建一个文档片段对象：
+         var frag=document.createDocumentFragment();
+         文档片段：内存中临时保存一个DOM子树的对象
+         何时使用：只要添加多个平级节点时，都要先放入文档片段，再将文档片段整体挂到DOM Tree上
+      2. 将子节点先放入文档片段
+      3. 将文档片段整体挂到DOM Tree上
+	文档片段本身不会出现在DOM Tree上，只会将元素加入DOM树
+
+   3. 删除：parent.removeChild(子节点);
+        子节点.parentNode.removeChild(子节点);
+
+2. HTML DOM常用对象：
+   1. Select对象：
+      事件：onchange 选中项发生改变时
+      属性：sel.selectedIndex 获得当前选中项的位置
+            sel.options 获得sel下所有option元素对象
+      方法：sel.add(opt) 将opt追加到sel下
+            sel.remove(i) 删除sel下i位置的option元素
+      Option对象：
+      创建一个新option：var opt=new Option(text,value);
+          相当于核心DOM三句话:
+               var opt=document.createElement("option");
+               opt.value=value;
+               opt.innerHTML=text;
+      属性：opt.index 获得当前opt所在的位置下标
+            opt.text  opt.value: 分别获得innerHTML和value
+            opt.selected: 判断当前opt是否被选中！
+                 强调：opt的selected不是bool值！
+                       但是却可直接作为条件判断
+
+      创建option同时，追加到select中：
+      	sel.add(new Option(text,value));
+
+
+
+
+
+
+
+
+         

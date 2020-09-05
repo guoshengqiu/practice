@@ -1,0 +1,86 @@
+正课：
+1. BOM常用对象: navigator history location
+2. ***事件:
+3. cooke:
+
+1. BOM常用对象：
+   ***navigator: 保存了浏览器的名称，版本以及配置信息
+     cookieEnabled: 判断当前浏览器是否启用cookie
+     plugins: 保存了当前浏览器安装的所有插件的信息的集合
+        plugins[i].name
+     userAgent: 保存了浏览器名称和版本信息的字符串
+
+   history: 保存当前窗口访问过的url的历史记录栈
+     history.go(n): 操作history中的游标前后移动
+        n为正: 前进几步
+        n为负: 后退几步
+        n为0: 刷新
+    
+   location: 保存当前窗口正在打开的url地址的对象
+    在当前窗口打开新页面,可后退
+     location="url";
+     location.href="url";
+     location.assign("url");
+    不可后退：
+     location.replace("url");
+    
+    刷新页面:
+     location.reload(true/false): 刷新
+         true: 总重新从服务器下载文档
+         false: 默认如果服务器上文档的更新时间，在上次下载后未改变，则直接从缓存中获取文档。
+     
+2. ***事件：页面本身或页面的内容的状态发生了改变
+     DOM Level2 Event 标准：IE9+
+     IE8 自成体系:
+
+   事件处理函数：当事件发生时，自动执行的函数对象
+                 其实就是页面或页面元素的属性而已
+                 命名：on事件名
+
+   如何绑定事件处理函数: 3种：
+     1. 在html元素中绑定事件处理函数属性:
+         <elem on事件名="js语句"></elem>
+        比如: <button onclick="fun(this)"></button>
+          js: function fun(btn){ 
+                  btn-->传进来的button
+                  this-->window 
+              }
+        构建DOM Tree:
+            button.onclick=function(){// this-->button
+		eval("fun(this)"); //fun(this);
+                                         button
+            }
+        事件发生时，自动执行：button.onclick();
+
+    2. 在js中动态绑定事件处理函数：2种：
+       1. elem.on事件名=函数对象
+        当事件发生时: elem.on事件名();
+	  在函数对象内，this-->elem
+     问题1：同一元素的同一事件处理函数属性只能绑定一个函数对象
+     问题2：无法修改事件的执行顺序
+       2. DOM 标准：
+         elem.addEventListener("事件名",函数对象,false/true)
+        当事件发生时: elem.on事件名();
+          在函数对象内，this-->elem
+        强调：1. 事件名，不带on
+              2. 函数对象中的this-->elem
+              3. 表示是否在捕获阶段触发，默认是false
+
+          IE8：？
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     

@@ -1,0 +1,190 @@
+1、边框倒角
+   圆角矩形
+   属性：border-radius 
+     按照顺时针的方向，从左上角开始，设置四个角的倒角半径
+     取值：
+        可以为1个 ， 也可以为 4个
+	取绝对值，也可以取百分比
+   单独定义：
+	border-top-left-radius:左上角
+	border-bottom-left-radius:左下角
+	border-top-right-radius:右上角
+	border-bottom-right-radius:右下角
+2、边框阴影
+   属性:box-shadow
+   取值：多个属性值的 值列表， 中间用 空格 区分
+         h-shadow : 必需，水平阴影的位置
+	 v-shadow : 必需，垂直阴影的位置
+	 blur : 可选，模糊距离
+	 spread : 可选，阴影的尺寸
+	 color : 可选，阴影的颜色
+	 inset : 可选，将默认的外部阴影改为内部阴影
+   常用方式：
+       box-shadow:h-shadow v-shadow blur color;
+3、轮廓
+   绘制于元素周围的一条线，位于边框的外围,起到突出元素的作用。
+   属性：outline : width style color;
+         outline:0px; 取消轮廓，多用于表单元素上
+
+****************************************
+1、框模型
+   框模型：内容（宽、高）、内边距、边框、外边距
+   对象实际宽度：左外边距 + 左边框 + 左内边距 + width +右内边距 + 右边框 + 右外边距
+
+   1、外边距
+      1、什么是外边距
+         围绕在元素 边框 周围的空白区域
+	 会在元素 外围 创建空白区域，并且是透明的
+      2、属性
+         margin : value;
+
+	 单边设置：
+	 margin-left:左外边距
+	 margin-right:右外边距
+	 margin-top:上外边距
+	 margin-bottom:下外边距
+
+	 取值：
+	      px
+	      %
+	      auto
+	      负值
+	 注意：对于【块级】元素来说 ， 设置【左右外边距】为【auto】的话，那么该元素会【居中】显示
+	 值的数量 
+	 margin : value ; 上下左右统一值;
+	 margin : v1 v2; v1 : 上下 ， v2 ：左右
+	 margin : v1 v2 v3; v1 : 上 ， v2：左右，v3：下
+	 margin : v1 v2 v3 v4;上 右 下 左
+
+	 eg:
+	 margin:15px 20px 8px;
+	 解释：上边距 15px 左右外边距 20px  下边距 8px
+	 margin:2px auto 8px auto;
+	 解释：上边距2px 左右居中 ， 下边距8px
+     注意：在html 中，有一些元素会具备默认外边距
+          body
+	  h1 - h6
+	  p
+	  ul li 
+	  dl dt dd
+     margin 所带来的影响：
+       1、外边距合并
+          两个垂直外边距相遇时，他们将形成一个外边距，称为外边距合并。最终外边距的值，以 大值 为准。
+       2、设置子元素的上外边距时，可能会成为 父元素的上外边距。
+          解决方案：
+	    1、设置父元素的边框
+	    2、通过 父元素的 上内边距
+    2、内边距
+       1、什么是内边距
+          内容区域和边框之间的空间
+	  注意：内边距会扩大边框所占用的区域
+       2、语法
+          padding : value;
+
+	  padding:v1;上下左右 四个内边距
+	  padding:v1 v2;上下  左右
+	  padding:v1 v2 v3;上 左右 下
+	  padding:v1 v2 v3 v4;上右下左
+
+	  padding-top
+	  padding-bottom
+	  padding-right
+	  padding-left
+
+	  取值单位:像素 、百分比
+2、背景
+   1、背景颜色
+   2、背景图像
+      属性：background-image
+      取值：url(路径)
+      eg:background-image:url(路径);
+   3、背景重复
+      平铺
+      当图片大小小于 元素大小时，就会出现背景重复。
+      属性：background-repeat
+      取值：
+           repeat : 在垂直方向和水平方向平铺，默认
+	   repeat-x:仅在水平方向平铺
+	   repeat-y:仅在垂直方向平铺
+	   no-repeat:不平铺，只显示一次
+   4、背景图片尺寸
+      属性：background-size
+      取值：
+            value1 value2 : 宽度，高度
+	    value1% value2% :百分比
+	    cover:覆盖
+	    contain:包含,背景图是能够完整的显示出来的。
+   5、背景图片固定
+      属性：background-attachment
+      取值：
+            fixed : 背景图片固定，背景图不会随着滚动条而发生滚动
+	    scroll : 默认值，滚动
+   6、背景定位
+      背景图片在元素中应该出现的位置
+      属性:
+           background-position
+      取值：
+           x y : x 表示 水平位置 偏移量，+ 为右，-为左 , y表示 垂直位置 偏移量，+为下，-为上
+	   x% y% : 偏移量取决于元素的 width 和 height,多数用于 背景图 水平和垂直居中的时候
+	   
+	   x 取值
+	   left
+	   center
+	   right
+	   y 取值
+	   top
+	   center
+	   bottom
+   7、背景属性(综合)
+      属性:background
+      取值:值列表
+           color url() repeat attachment position
+      eg:
+         background:#f00 url(images/pwd.png) no-repeat fixed 0px 0px;
+
+         常用：
+	 background:url repeat position;
+	 background:red;
+3、渐变
+   1、渐变语法
+      属性:background-image
+      取值:
+           linear-gradient : 线性渐变
+	   radial-gradient : 径向渐变
+	   repeating-linear-gradient : 重复线性渐变
+	   repeating-radial-gradient : 重复径向渐变
+      eg:
+	bakcground-image:linear-gradient(渐变参数);
+      1、线性渐变
+         语法： 
+	   linear-gradient(angle,color-point1,color-point2,...)
+	     angle : 渐变方向或角度
+	             to top : 向上 --> 0deg
+		     to right :向右 --> 90deg
+		     to bottom : 向下 --> 180deg
+		     to left : 向左 --> 270deg
+	     color-point : 颜色点
+	            颜色值 位置
+		    red 0%
+		    blue 50%
+		    yellow 100%
+	  eg : 
+	     background-image:linear-gradient(to bottom,red 0%,blue 50%,yellow 100%);
+      2、径向渐变
+         语法:
+	   radial-gradient([size at position],color-point1,color-point2,....);
+
+	   size: 圆的半径
+	   position：圆的圆心坐标
+      3、重复线性渐变
+         语法:
+	   repeating-linear-gradient(angle,color-point);
+
+
+
+
+
+
+
+
+

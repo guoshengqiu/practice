@@ -1,0 +1,97 @@
+1、文本格式化
+   1、字体属性
+      1、指定字体
+         属性：font-family
+	 值：value1,value2 ....
+	 eg:
+	    font-family:"microsoft yahei","arial";
+      2、字体大小
+         属性:font-size
+	 值：px ，pt 为单位
+      3、字体加粗
+         属性：font-weight
+	 取值：normal/bold/400-900
+      4、字体样式
+         作用：斜体
+	 属性：font-style
+	 值：normal/italic
+      5、小型大写字母
+         属性：font-variant
+	 取值：normal/small-caps
+      6、字体属性  font
+         属性:font
+	 取值：font-style font-variant font-weight font-size font-family;
+	 eg:
+	   font:12px "microsoft yahei";
+	   font:bold 12px "微软雅黑";
+	   font:12px/24px "微软雅黑";
+   2、文本属性
+      1、文本颜色
+         属性：color
+      2、文本排列(水平)
+         属性:text-align
+	 取值：left,center,right
+	 注意：设置在外层元素上控制内层的【文本】 和 【行内元素】水平对齐方式
+      3、文本修饰
+         线条修饰
+	 属性：text-decoration
+	 取值：none/underline/line-through
+      4、行高
+         作用：设置 一行 文本的高度是多少，如果行高高于文本的高度，那么文本将在这段高度重垂直居中
+	 使用场合：制作文本的垂直居中，将行高设置成与当前元素高度一致即可。缺点：只能有一行文本
+	 属性：line-height
+	 值: px
+      5、首行文本缩进
+         第一行的开始处，空出多大的【距离】
+	 属性：text-indent
+	 取值：以 px  为单位的值
+      6、文本阴影
+         属性：text-shadow
+	 取值：h-shadow v-shadow blur color
+	 eg:
+	    text-shadow:0px 0px 1px red;
+
+2、浮动定位
+   1、定位
+      定义元素框相对于其 正常位置 应该出现的位置
+      位置 可以是 相对于自身、父元素位置、其他元素以及浏览器窗口本身的位置。
+
+      1、定位分类
+         1、普通流定位(文档流定位、正常流)默认定位方式
+	 2、浮动定位
+
+	 3、相对定位
+	 4、绝对定位
+	 5、固定定位
+      2、普通流定位
+         块级元素：从上到下的一个接一个的排列
+	 内联元素：在一行中从左到右的水平排列
+   2、浮动定位
+      1、什么是浮动定位
+         将元素排除在普通流之外(脱离文档流)
+	 元素将不再占据页面空间
+	 将元素放在【包含框】的【左边】或者【右边】
+	 浮动元素依旧位于包含框之内
+      2、浮动属性
+         属性：float
+	 取值：left/right/none
+      3、清除浮动元素所带来的影响
+         属性：clear
+	 取值：left/right/both/none
+	 定义了元素的哪边上不允许出现浮动元素
+   3、浮动元素对 父元素的影响
+      父元素的高度，与子元素(浮动的)无关
+      解决方案：
+        1、设置父元素的高度
+	2、通过 overflow 解决
+	   在父元素内增加 overflow:hidden;属性撑起父元素高度。
+   4、元素只要浮动起来，就会变成 块级 的 
+      行内元素 要是 浮动起来的话，就【允许】修改其宽度和高度
+
+
+
+
+
+
+
+

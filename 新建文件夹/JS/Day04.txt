@@ -1,0 +1,107 @@
+1、DHTML 概述
+   DHTML :Dynamic HTML,动态HTML,允许让页面的元素产生变化。保证页面在下载后，仍然能够实时变换页面效果。
+   DHTML的功能：
+     1、动态改变页面元素
+	 2、与用户进行交互
+	 3、DHTML对象模型包含:BOM 和 DOM
+   DHTML = HTML + CSS + Javascript
+2、获取页面元素
+   1、通过ID选取元素
+      document.getElementById("元素的id");
+	  返回：得到一个DOM对象
+   2、通过标签名获取元素
+      document.getElementsByTagName("标签名");
+	  返回：得到 由DOM元素 所组成的一个 数组
+   3、通过class名称获取元素
+      document.getElementsByClassName("class名称")
+	  返回：得到由DOM元素所组成的一个数组
+     
+    var div = document.getElementById("d1");
+    div.getElementById("d1_1");
+    div.getElementsByTagName("span");
+3、节点间关系
+   属性:
+   1、parentNode ：获取父节点
+   2、childNodes ：获取所有子节点(得到数组)
+   3、firstChild ：获取第一个子节点
+   4、lastChild ：获取最后一个子节点
+   5、previousSibling ：获取上一个兄弟节点
+   6、nextSibling ：获取下一个兄弟节点
+   7、nextElementSibling : 获取下一个【元素】节点
+   8、previousElementSibling : 获取上一个【元素】节点
+   9、children : 获取所有的子【元素】节点，不包含文本节点
+
+4、元素内容
+   1、HTML内容
+      <div>
+	<span>Hello Div</span>
+      </div>
+
+      通过 innerHTML属性 【读取】或【设置】元素节点中的【html内容】
+   2、文本内容 
+      读取或设置元素中的文本内容(不包含html)
+      属性：textContent IE8 及以下浏览器不支持
+            innerText : 火狐不支持
+5、元素属性 
+   1、属性集合
+      属性：attributes
+      返回：返回该节点所有属性的数组
+      <a name="" id="" href="" target="_blank"></a>
+   2、读取属性值
+      1、element.attributes[下标].value;
+      2、element.attributes['属性名'].value;
+      3、element.getAttributeNode('属性名').value
+      4、element.getAttribute('属性名');
+   3、修改/设置属性值
+      1、element.setAttribute(name,value);
+         name ：属性名称
+	 value : 属性值
+	 document.getElementById("a").setAttribute("href","http://www.baidu.com");
+      2、element.setAttributeNode(attrNode);
+         //1、创建属性节点
+	 var attr=document.createAttribute("href");
+	 //2、为属性节点赋值
+	 attr.nodeValue="http://www.baidu.com";
+	 //3、将属性节点放置在 setAttributeNode()中
+	 document.getElementById("a").setAttributeNode(attr);
+   4、element.属性名称
+      document.getElementById("a").href="http://www.baidu.com";
+6、元素样式
+   DOM封装了针对不同的样式表的操作方式，最常用的就是 内联样式：style属性访问
+   1、style属性
+      注意：只能获取内联样式中的属性
+
+      属性名:style中的属性有连字符(-)，去横线变驼峰
+         css :                javascript
+	   width              width
+	   background-color   backgroundColor
+	   border-left-color  borderLeftColor
+      获取或修改元素的内联样式：
+      获取:element.style.属性名;
+           获取的结果类型均为字符串
+      设置:element.style.属性名=value;
+           value也均为字符串类型，并且有单位的话要添加单位
+	   element.style.width="200px";
+
+	   element.style.display="none";
+   2、获取计算的样式
+      内部、外部样式表
+      DOM:
+         document.defaultView.getComputedStyle("元素对象").样式属性;
+      IE :元素对象.currentStyle.属性
+7、修改样式表中的样式
+   1、获得样式表对象
+      var sheet = document.styleSheets[index];
+   2、获取样式表中所有的规则的集合
+      var rules = sheet.cssRules || sheet.rules;
+   3、获取规则数组中，想要修改的某一个规则
+      var rule = rules[index];
+   4、获取或设置 样式属性
+      var value = rule.style.属性名;
+      或
+      rule.style.属性名=value;
+   注意：使用时须谨慎。
+
+
+
+

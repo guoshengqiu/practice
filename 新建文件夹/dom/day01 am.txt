@@ -1,0 +1,113 @@
+正课：
+1. DOM概述
+2. ***DOM Tree
+   *****递归遍历DOM Tree
+3. *查找
+
+1. DOM概述：
+   JavaScript=ECMAScript(核心语法)+
+              DOM(专门操作网页内容的API)+  3
+              BOM(专门操作浏览器窗口的API) 2
+   DHTML: 所有实现网页动态效果的技术的统称 —— 宣传词汇
+     DHTML=HTML+CSS+JS
+   鄙视题: HTML XHTML DHTML XML
+     HTML: 超文本标记语言，专门编写网页内容的语言
+     XHTML: 严格的HTML语言标准
+     DHTML: 所有实现网页动态效果的技术的统称
+     XML: 可扩展标记语言，标签可自定义的
+     <student><!--自描述-->
+         <sname>杨幂</sname>
+         <math>81</math>
+	 <chs>53</chs>
+	 <eng>89</eng>
+     </student>
+     JSON: JavaScript Object Notation ——互联网中取代XML
+       "{'sname':'杨幂','math':81,'chs':53,'eng':89}"
+
+    DOM：操作一切结构化文档的API   
+         即可操作XML，又可操作HTML
+    核心DOM: 可以兼容所有结构化文档的API
+         可执行所有操作: 查找，修改，插入，删除  CRUD
+         缺点：繁琐
+    HTML DOM: 基于核心DOM的API，扩展的专门操作网页的简化版API
+         缺点：不能完成所有CRUD操作：
+                更侧重于修改
+               查找，插入和删除还要靠核心DOM补充
+
+2. ***DOM Tree: html文档内容加载进内存后，由所有节点对象组成的树形结构。
+   网页加载过程：
+     下载HTML-->DOM Tree——（jQuery加载）
+                     |
+                   附加-->***layout***-->Render Tree-->paint
+                     |                                       |
+     下载CSS -->CSSRules                                     |
+                                                             |
+                                                        onload
+   网页中一切内容都是节点对象：
+      document对象是根节点
+      其他所有对象都是document的子代节点
+   节点对象的类型：4大类：
+      document节点：文档类型(Document)
+      元素节点：元素类型(Element)
+      文本节点：文本类型(Text)
+      属性节点：属性类型(Attr)——通常属性不当做节点看
+
+   节点对象的父类型：Node (所有节点对象都继承自Node.prototype)
+       三大属性：
+       1. node.nodeType: 获得当前节点对象的类型
+                         返回一个数字，区分节点类型
+          ELEMENT_NODE: 1
+          ATTRIBUTE_NODE: 2
+          TEXT_NODE: 3
+          COMMENT_NODE: 8
+          DOCUMENT_NODE: 9
+       2. node.nodeName: 获得当前节点的名称：
+             1. 元素节点：标签名 ***全大写***
+             2. 文本节点：#text
+             3. document: #document
+         比如：判断一个元素是否是button
+           if(node.nodeName=="BUTTON")
+       3. node.nodeValue: 获得当前节点的值:
+             1. 元素节点：返回null - 无效
+             2. 文本节点：返回文本的内容
+
+    DOM Tree：6种关系：（节点树：包含所有节点）
+    1. 父子关系: node.parentNode - 每个节点只可能有一个父节点
+                 node.childNodes - 返回直接子节点的集合
+                 node.firstChild - node下第一个子节点
+                 node.lastChild - node下最后一个子节点
+    2. 兄弟关系: node.previousSibling - 前一个平级的兄弟节点
+                 node.nextSibling - 后一个平级的兄弟节点
+
+    除parentNode外，都会受看不见的空格，换行，制表符的干扰    
+
+    元素树：（IE9+）仅包含元素节点的树结构 - 节点树的子集
+    1. 父子关系: node.parentElementNode
+                 node.children - IE8兼容！
+                 node.firstElementChild
+		 node.lastElementChild
+    2. 兄弟关系: node.previousElementSibling
+		 node.nextElementSibling
+
+    快捷通道：document.body 直接获得body节点
+
+    DOM API原型链：
+                  HTML DOM                  核心DOM
+       document-->HTMLDocument | -->Document-->Node-->Object
+       elem-->HTMLXXXElement   |
+                -->HTMLElement | -->Element-->Node
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+

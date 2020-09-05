@@ -1,0 +1,134 @@
+﻿1、显示
+   1、显示方式
+      页面元素的显示模式
+      属性：display
+      取值：none / block / inline / inline-block
+            none : 让生成的元素没有框,即让生成的元素不显示（隐藏）。
+	    block : 让元素表现的像块级一样,独立成行
+	    inline : 让元素表现的像行内元素一样,多个元素占一行
+	    inline-block : 行内块,还是行内元素,会具备块级元素的一些特点-->允许修改元素的宽和高
+   2、显示效果
+      1、可见性
+         真正意义上完成元素的隐藏
+	 属性：visibility
+	 取值：
+	     visible ：可见的 ， 默认值
+	     hidden ：元素不可见，但是依然占据空间
+	     collapse：用在表格上，删除一行或一列时不影响表格布局
+	 尤其注意：hidden（占空间），与 display:none;(不占空间)
+      2、透明度
+         属性：opacity
+	 取值：0-1之间的小数
+	       0.0(完全透明) - 1.0(完全不透明)
+      3、垂直对齐方式
+         属性：vertical-align
+	 取值：
+	       baseline : 默认，基线对齐,放在父元素基线上
+	       top : 顶端对齐
+	       bottom：底端对齐
+	       middle：居中对齐
+	 使用场合:
+	    1、table里
+	    2、img ：图片左右的文本相对于图片本身的垂直对齐方式
+   3、光标
+      属性：cursor
+      取值：
+           default 浏览器默认
+	   pointer ：鼠标变成 手的 形状
+	   crosshair ： 十字
+	   text : I
+	   wait : 等待
+	   help : 帮助
+2、列表样式
+   1、列表项标识
+      属性：list-style-type
+          无序列表：
+	      取值： none
+		     disc
+		     cirdcle
+		     square
+	  有序列表：
+		取值：
+		     none
+		     decimal
+		     lower-roman
+		     ... 
+      li{
+	list-style-type:none;
+      }
+   2、列表项图像
+      将默认的标识替换成自己的图像
+      属性: list-style-image
+      取值：url( 图像路径);
+   3、列表项位置
+      属性：list-style-position
+      取值：
+           outside：默认值
+	   inside : 将标识放在文本区域内
+   4、列表属性
+      属性：list-style :type url(路径) position;
+
+      常用方式：list-style:none;
+      
+3、定位
+   1、定位方式
+      属性：position
+      偏移属性：top，bottom，left，right
+      1、普通流定位
+         语法： 
+	    position:static;
+	    所有元素的position默认值都为 static
+      2、相对定位
+         1、什么是相对定位
+	    相对于元素原来的位置偏移某个距离
+	 2、特点
+	    元素仍然保持当前的形状
+	    元素原本所占的空间依然保留
+	 3、语法
+	    position:relative;
+	    属性：position
+	    值：relative
+
+	    通过 left,right,top,bottom 实现位置偏移
+         4、使用场合
+	    1、元素位置会发生微妙的变化
+	    2、配合着其他的(绝对定位)定位方式一起来使用
+      3、绝对定位
+         绝对定位 和  相对定位的差别，定位元素的起始位置不同
+	 1、什么是绝对定位
+	    将元素内容从普通流中完全移除(脱离文档流),不占据页面空间。
+	    绝对定位的起始位置：相对于离它【最近的】【已定位的(relative,absolute)】祖先元素。
+	    如果当前元素不具备已经定位的祖先元素，那么它的位置就相对于最初的包含块(body)。
+	 2、语法
+	    属性：position
+	    值：absolute
+	    通过 top、bottom、right、left 实现位置的偏移。
+	 3、使用场合
+	    1、适合配合着 relative 做 弹出菜单
+      4、固定定位
+         将元素固定在页面中的某个位置处，不随着滚动条发生位置的变化。
+	 固定定位也从文档流中溢出，不占用页面空间
+	 属性：position
+	 值：fixed
+	 通过 top,left,right,bottom属性修改定位位置
+4、层叠顺序
+   属性：z-index
+   取值：不带单位的数字
+   使用场合：在 已定位 元素身上使用，值越大者越靠前
+/*************************/
+【注意，自己发现】
+如果层叠元素【不能】直接把跟【元素】本身只有【一级关系】的【父元素】提到【该元素】的上面，
+只能把【同级】元素和比【元素】大【两级以上】的元素移动到【该元素】上面或者下面
+
+
+
+
+
+
+项目：
+   宽度 ： 1211px
+
+
+
+
+

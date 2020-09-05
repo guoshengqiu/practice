@@ -1,0 +1,314 @@
+1、CSS
+   1、css作用
+      提出统一的方式来修改页面元素的【样式】
+   2、什么是CSS
+      CSS ：Cascading Style Sheet
+
+	    级联样式表 或 层叠样式表 俗称：样式表
+   3、css的优势
+      1、实现了 【内容】  与  【表现】  的分离
+      2、更大程度的去提高代码的【可重用性】 和 【可维护性】
+   4、CSS的使用方式
+      1、内联样式(行内样式)
+         将 样式 定义在单个的html元素中的
+	 使用方式：将 样式 定义在 style 属性中
+	 特点：只对当前标记有效。
+	 语法：<p style="样式内容"></p>
+	    样式内容：样式属性:属性值;样式属性:属性值;样式属性:属性值;
+
+	    样式属性：
+	       color : 文本颜色
+	       取值:red,blue,yellow,green,pink,black..
+	       background-color:背景颜色
+	       取值:red,blue,yellow,....
+      2、内部样式表
+         将所有的样式定义在 HTML 的 头元素<head>中
+	 语法：
+	    <head>
+		<title></title>
+		<!-- 定义内部样式表 -->
+		<style type="text/css">
+			样式规则
+		</style>
+	    </head>
+	    样式规则：要修改的 标记 的 属性
+	    样式规则语法：
+	       选择器{
+		 样式属性:属性值;
+		 样式属性:属性值;
+		 样式属性:属性值;
+		 样式属性:属性值;
+		 .....
+	       }
+	       选择器：规范了哪些元素能够使用当前定义好的样式。
+
+	       元素选择器:(标记选择器),由元素的名称作为选择器，符合该选择器的元素，都将使用定义好的样式
+	       eg:
+	         div{
+			color:red;
+			background-color:green;
+		 }
+	   特点：能够实现 样式表的 可重用性 和 可维护性
+	 3、外部样式表
+	    将样式定义在一个外部的 css 文件中(*.css文件)
+	    由HTML页面对 外部样式表 进行引用
+	    使用步骤：
+	      1、创建一个 css 文件 保存 样式规则
+	      2、在需要的html页面上引入 css 文件
+	         在 <head>标记中
+
+	         <link rel="stylesheet" type="text/css" href="style.css" />
+      5、CSS 样式表特征
+         1、继承性
+	    大多数css样式规则是可以被继承的
+	 2、层叠性
+	    页面中可以定义多个样式表
+	    如果不冲突时，多个样式表中的样式可以层叠为1个
+	 3、优先级
+	    样式定义冲突时，按照不同样式规则的优先级来应用样式
+
+	    样式优先级:
+	    低1、浏览器缺省设置(默认显示规则)
+	    中2、外部样式表 或 内部样式表
+	         就近原则
+	    高3、内联样式(行内样式)
+
+	    !important 规则  ! : 非
+	      可以通过 !important规则调整样式优先级
+	      !important 放在样式属性值之后，中间用 空格 分开，该值的优先级是最高的。
+	      div{
+		color:red !important;
+	      }
+	    注意：谨慎使用，能不用就不用
+
+
+练习
+   1、添加 h3 元素 定义默认样式
+      文本颜色 ：黑色 black;
+      文字大小 ：12px
+   2、使用内联样式 定义字体颜色为灰色
+   3、内部样式表中 ，定义字体颜色为红色，字体大小为 30pt
+   4、外部样式表 demo.css中，字体颜色 黄色， 字体大小 10pt，背景为 灰色(gray)
+   5、查看效果
+   6、改变 内部样式表 与  外部样式表的位置 再查看效果
+***********************************************
+1、CSS基础选择器
+   选择器：规范页面上哪些元素能够使用定义好的样式
+   1、通用选择器
+      语法：*
+      作用：与页面上任何一个元素匹配
+            通常定义页面上所有的标签的默认样式
+      eg: *{
+		font-size:12px;
+		color:red;
+		}
+   2、元素选择器
+      别名：标记选择器、标签选择器
+      语法：由html标记 作为选择器如，html,body,div, span,a,b,
+      作用：修改某个标记的默认样式
+      eg:
+         a{
+		text-decoration:none;/*去下划线*/
+	 }
+   3、类选择器(类样式)
+      用户可以随意定义一个选择器，然后由标签 通过 class 属性来进行引用
+      语法：.className{样式属性:值;}
+      引用：通过 标记的class属性 对 类名 进行引用
+      <style>
+	.warning{
+		color:red;
+	}
+      </style>
+      <body>
+	<p class="warning">Test</p>
+      </body>
+
+      class 属性值 ， 支持列表形式，称为 值列表。即class属性后允许出现多个 class 值，每个值之间用 空格 区分
+   4、分类选择器
+      将类选择器 与 元素选择器结合起来使用。以实现对某种元素中的不同样式的细分控制。
+      <div class="important"></div>
+      <div class="warning"></div>
+      语法：元素选择器.类选择器{}
+      作用：精确定位到某个元素上
+      eg:
+         div.important{
+		
+	 }
+   5、id 选择器(id样式)
+      以一种独立的方式来定义样式
+      仅作用在 id 属性值 能与当前选择器名称匹配的元素上
+      语法:#idName
+
+      eg:
+         #nav{
+		background-color:blue;	
+	 }
+
+	 <div id="nav"></div>
+         布局用id  ， 内容实现用class
+
+      div#nav{
+	
+      }
+
+      #nav{
+	
+      }
+   6、群组选择器
+      作用：统一定义一组选择器中的通用样式
+      p{
+	color:green;
+      }
+      div{
+	color:green;
+      }
+      span{
+	color:green;
+      }
+      语法：用 , 隔开的选择器列表
+      p,div,span,#nav,.back{
+	color:green;
+      }
+      div{
+	background:yellow;
+      }
+      #nav{
+	background:red;
+      }
+   7、后代选择器
+      后代元素选择器
+      作用：通过 元素 的位置关系来匹配到元素
+
+      语法：选择器1 选择器2
+        div span{}
+	#d1 span{}
+	div.nav ul.red{}
+
+   8、子代选择器
+      子代元素选择器
+      作用：通过 元素 的位置关系来匹配到元素
+            缩小 匹配 的范围
+      特点：只通过一层 父子关系来查找元素
+      语法：选择器1>选择器2
+            匹配的是 选择器1【下一级】元素中，满足选择器2的元素
+
+   9、伪类选择器
+      作用：匹配元素 不同的状态的。
+      语法：
+           选择器1:伪类选择器{}
+      伪类分类：
+         链接伪类
+	 动态伪类
+
+	 目标伪类
+	 元素状态伪类
+	 结构伪类
+	 否定伪类
+      1、链接伪类
+         :link , 定义尚未访问的链接样式
+	 :visited , 定义访问过的链接的样式
+      2、动态伪类
+         匹配用户的一些动作
+	 :hover , 定义 鼠标 悬停 在元素上的样式
+	 :active , 定义 html元素被激活时的样式
+	 :focus , 定义 html元素获取焦点时的样式
+      
+
+2、单位 
+    1、尺寸单位
+    2、颜色单位
+       1、rgb(r,g,b)
+          r: red(0-255)
+	  g: green(0-255)
+	  b: blue(0-255)
+	  rgb(0,0,0) : 黑色
+	  rgb(255,255,255) : 白色
+	  rgb(255,0,0) : 红色
+	  rgb(0,255,0) : 绿色 
+	  rgb(255,255,0) :
+	  rgb(128,35,92) :
+
+	  rgb(r%,g%,b%)
+	  rgba() 
+	    r:
+	    g:
+	    b:
+	    a:alpha,透明度 0-1之间的小数
+	2、#rrggbb 
+	    十六进制：0-9 A-F
+	    #000000 : 黑色
+	    #ffffff : 白色
+	    #ff0000 : 红色
+	    #fe0000 : 红色
+	    #e4393c : 京东红
+
+	   #rgb :  --> #rrggbb 缩写 ,仅限每两位数字都一样的情况使用
+	   #000  --> #000000
+	   #fa0 --> #ffaa00;
+	   #000 : 黑色
+	   #111 : 灰色（深）
+	   ....
+	   #eee : 灰色（浅）
+	   #fff : 白色
+3、尺寸属性
+   用于描述 元素的 高度 和 宽度
+   单位 ：像素、百分比
+   宽度：width:给确定宽度
+
+         max-width: 给定 宽度范围最大值
+	 min-width: 给定 宽度范围最小值 
+   高度：height:给确定高度值
+         max-height:
+	 min-height:
+   注意：一旦元素给定宽度 和  高度后 ， 如果元素中的内容超出范围，则会产生 溢出 的效果
+
+4、溢出
+   overflow:当内容溢出元素框时如何处理
+   取值：
+        visible : 溢出可见,默认值
+	hidden : 溢出隐藏
+	scroll : 溢出后滚动,默认的话会有滚动条
+	auto : 自动，不溢出，正常显示，溢出后，显示滚动条
+   单向溢出：
+      overflow-x:横向溢出后的处理
+      overflow-y:纵向溢出后的处理
+
+      取值：
+         visible、hidden、scroll、auto
+5、哪些HTML元素允许设置尺寸属性
+   块级元素 允许设置 尺寸相关属性
+   行内元素则不可以
+   具备 width ，height 属性的html元素 ， 允许通过css来修改
+   img  table
+6、边框
+   属性：
+     简写：border:width style color;
+             width : 取值 为 数值
+	     style ：表示 线条样式 取值 solid(实线),dotted(虚线),dashed(虚线)
+	     color : 设置颜色,可以取值为 transparent(透明色)
+	   border:1px solid #ddd;
+	     设置上下左右四个边框的宽度为 1px ， 样式为实线，颜色为 #ddd色
+     单边定义：
+        border-left/right/top/bottom : width style color;
+      
+        border-width:四个边框宽度
+	  border-left/right/top/bottom-width:
+	border-style:四个边框样式
+	  border-left/right/top/bottom-style:
+	border-color:四个边框颜色
+	  border-left/right/top/bottom-color:
+	border-方向-属性:
+	  方向：left,right,top,bottom
+	  属性：width,style,color
+
+	
+	 
+	
+
+
+
+
+
+
+
+

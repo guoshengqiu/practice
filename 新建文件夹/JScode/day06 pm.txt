@@ -1,0 +1,58 @@
+正课：
+1. ***RegExp对象
+    验证
+2. Math  
+3. Date
+
+   正则表达式: 查找(4种) 替换(删除/格式化) 切割 验证
+1. ***RegExp对象：
+    验证：var bool=reg.test(str)
+      str符合reg的规则，就返回true，否则返回false
+
+2. Math对象：仅专门提供数学计算的方法
+     Math对象没有构造函数，所以不能new！——唯一一个
+     所有API都直接通过Math类型名调用
+    1. 取整: 
+       上取整：只要超过，就取下一个整数
+	Math.ceil(num)
+       下取整：去掉小数部分，取整数部分
+        Math.floor(num)
+       四舍五入取整：小数部分够5就进1，不够就舍掉
+        var num=Math.round(num)
+          缺点：只能取整
+        var str=num.toFixed(d); d:0-20之间
+          缺点：返回字符串，不能直接用于计算
+        自定义round方法：3步：
+          function round(num,d){
+              num*10的d次方倍
+              Math.round(num.toFixed(2))
+	      num/10的d次方倍
+	      返回number
+          }
+    2. 乘方和开平方
+       乘方: Math.pow(底数,幂) 
+       开平方: Math.sqrt(num);
+    3. 最大值和最小值
+       Math.max(值1,值2,...)
+       Math.min(值1,值2,...)
+       如何获取数组中的最大值：固定套路
+        Math.max.apply(Math,arr); 
+    4. 随机数:Math.random() 0<=r<1的小数
+        任意min~max之间取随机整数
+         Math.floor(Math.random()*(max-min+1)+min)
+        如果min从0开始,可简写为：
+         Math.floor(Math.random()*(max+1))
+    
+
+
+
+
+
+
+
+
+
+
+
+     
+    
